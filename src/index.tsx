@@ -147,7 +147,8 @@ const Story = styled.div`
   margin-top: 176px;
   width: 30.6vw;
   height: 200px;
-  font-size: 20px;
+  font-size: 32px;
+  line-height: 48px;
 `
 
 const Generation = styled.div`
