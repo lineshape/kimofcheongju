@@ -1,3 +1,4 @@
+import "./main.css"
 import React, { useRef, useState, useEffect } from "react";
 import ReactDOM from "react-dom";
 import styled from "@emotion/styled";
