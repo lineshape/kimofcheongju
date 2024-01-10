@@ -71,7 +71,7 @@ const StoryBox = ({f} : StoryBoxProps) => {
 
   return (
     <StoryBoxRoot>
-      
+       
     <Box>
       <Story>
         <p>
