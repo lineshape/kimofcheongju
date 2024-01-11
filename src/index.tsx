@@ -120,7 +120,7 @@ const StoryBoxRoot = styled.div`
   flex-direction: row;
   flex-wrap: nowrap;
   height: 100vh;
-  width: 1000vw;
+  width: 1050vw;
   gap: 17.7vw;
   padding-left: 48px;
   
