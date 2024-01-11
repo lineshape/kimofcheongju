@@ -24,7 +24,16 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
-    <script type="module" src="https://8fl3k30sy0.execute-api.ap-northeast-2.amazonaws.com/v1/api/fontstream/djs/?sid=gAAAAABlnmSRzDB-PlTBwj3lH58j9g7Ys4vu3BYbenxBM4zAqxYkMymmLgD1vof4NG7pMfl-Ssttcb7iblWM9Vhml27Vce1tMVYlzDO5Ocyh_FfF4uEiIJqfcQFFGD2TRp2OpOrjP9FFLZ8SmTXuqpfCzwpiOH7R0Jhn1RghJ_nXUGs3cdrle1ajj5oZl_fr88hJke2jezcVEl5qAb6cc03118od3J7KKin6LDt6De-nleS-4188JqY7Mjl66weWTyY6_AcHYH-m" charset="utf-8"></script>
+    <script>
+      (function(d) {
+        var config = {
+          kitId: 'jzx5qnf',
+          scriptTimeout: 3000,
+          async: true
+        },
+        h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='https://use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
+      })(document);
+    </script>
     <!-- HTML 파일의 <head> 태그 내에 추가 -->
 <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
     <title>React App</title>

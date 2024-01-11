@@ -119,7 +119,7 @@ const StoryBoxRoot = styled.div`
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
-  height: 50vw;
+  height: 100vh;
   width: 1000vw;
   gap: 17.7vw;
   padding-left: 48px;
@@ -131,6 +131,7 @@ const GenRoot = styled.div`
   flex-direction: column;
   justify-content: space-between;
   margin-bottom: 51px;
+  
 `
 
 const Box = styled.div`
@@ -147,13 +148,13 @@ const Story = styled.div`
   margin-top: 176px;
   width: 30.6vw;
   height: 200px;
-  font-size: 32px;
-  line-height: 48px;
+  font-size: 2rem;
+  line-height: 1.7;
 `
 
 const Generation = styled.div`
   display: flex;
-  font-size: 32px;
+  font-size: 2.5rem;
 `
 
 const Name = styled.span`
@@ -290,13 +291,13 @@ const NavigationBarRoot = styled.div`
   z-index: 100;
   // margin: 48px;
   padding-left: 48px;
-  padding-top: 32px;
+  padding-top: 40px;
   gap: 1.6vw;
 `
 
 const NavigationBarItem = styled.div`
   display: flex;
-  font-size: 32px;
+  font-size: 2.5rem;
   width: 14.5vw;
 `
 interface NavigationBarProps {
@@ -319,10 +320,10 @@ const ShowHelpRoot = styled.div`
   display: flex;
   position: fixed;
   bottom: 51px;
-  right: 200px;
+  right: 48px;
   z-index: 100;
 
-  font-size: 32px;
+  font-size: 2.5rem;
 `
 
 const ShowHelp = () => {

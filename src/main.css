@@ -41,7 +41,7 @@ footer, header, hgroup, menu, nav, section {
 
 body {
 	line-height: 1;
-    font-family: 'GowunBatang-Regular', serif;
+    font-family: "agchoijeongho-screen", serif;
 }
 ol, ul {
 	list-style: none;
@@ -57,4 +57,10 @@ q:before, q:after {
 table {
 	border-collapse: collapse;
 	border-spacing: 0;
+}
+
+/* 여기서부터 따로 작성한 css */
+
+::-webkit-scrollbar {
+	display: none;
 }
