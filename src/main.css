@@ -60,7 +60,6 @@ table {
 }
 
 /* 여기서부터 따로 작성한 css */
-
 ::-webkit-scrollbar {
 	display: none;
 }
