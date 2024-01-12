@@ -196,7 +196,6 @@ const Comment = styled.div`
   margin-left: 16.1vw;
   word-wrap: break-word;
   white-space: pre-wrap;
-  // border: 1px solid black;
 
   font-size: 2.5vh;
   line-height: 1.7;
@@ -208,11 +207,15 @@ interface StoryBoxProps {
 }
 
 const StoryBox = ({ f }: StoryBoxProps) => {
+  const [inputphase, setInputPhase] = useState<boolean>(false);
   const [commentTo, setCommentTo] = useState<string>("");
+  // 15대
   const [comment1, setComment1] = useState<string>(""); // 형석
+  // 16대
   const [comment2, setComment2] = useState<string>(""); // 락성
   const [comment3, setComment3] = useState<string>(""); // 락민
   const [comment4, setComment4] = useState<string>(""); // 락현
+  // 17대
   const [comment5, setComment5] = useState<string>(""); // 두석
   const [comment6, setComment6] = useState<string>(""); // 두락
   const [comment7, setComment7] = useState<string>(""); // 두현
@@ -272,36 +275,6 @@ const StoryBox = ({ f }: StoryBoxProps) => {
   const [comment28visible, setComment28Visible] = useState<boolean>(false);
   const [comment29visible, setComment29Visible] = useState<boolean>(false);
   const [comment30visible, setComment30Visible] = useState<boolean>(false);
-  const [inputphase1, setInputPhase1] = useState<boolean>(false);
-  const [inputphase2, setInputPhase2] = useState<boolean>(false);
-  const [inputphase3, setInputPhase3] = useState<boolean>(false);
-  const [inputphase4, setInputPhase4] = useState<boolean>(false);
-  const [inputphase5, setInputPhase5] = useState<boolean>(false);
-  const [inputphase6, setInputPhase6] = useState<boolean>(false);
-  const [inputphase7, setInputPhase7] = useState<boolean>(false);
-  const [inputphase8, setInputPhase8] = useState<boolean>(false);
-  const [inputphase9, setInputPhase9] = useState<boolean>(false);
-  const [inputphase10, setInputPhase10] = useState<boolean>(false);
-  const [inputphase11, setInputPhase11] = useState<boolean>(false);
-  const [inputphase12, setInputPhase12] = useState<boolean>(false);
-  const [inputphase13, setInputPhase13] = useState<boolean>(false);
-  const [inputphase14, setInputPhase14] = useState<boolean>(false);
-  const [inputphase15, setInputPhase15] = useState<boolean>(false);
-  const [inputphase16, setInputPhase16] = useState<boolean>(false);
-  const [inputphase17, setInputPhase17] = useState<boolean>(false);
-  const [inputphase18, setInputPhase18] = useState<boolean>(false);
-  const [inputphase19, setInputPhase19] = useState<boolean>(false);
-  const [inputphase20, setInputPhase20] = useState<boolean>(false);
-  const [inputphase21, setInputPhase21] = useState<boolean>(false);
-  const [inputphase22, setInputPhase22] = useState<boolean>(false);
-  const [inputphase23, setInputPhase23] = useState<boolean>(false);
-  const [inputphase24, setInputPhase24] = useState<boolean>(false);
-  const [inputphase25, setInputPhase25] = useState<boolean>(false);
-  const [inputphase26, setInputPhase26] = useState<boolean>(false);
-  const [inputphase27, setInputPhase27] = useState<boolean>(false);
-  const [inputphase28, setInputPhase28] = useState<boolean>(false);
-  const [inputphase29, setInputPhase29] = useState<boolean>(false);
-  const [inputphase, setInputPhase] = useState<boolean>(false);
 
   return (
     <StoryBoxRoot>
@@ -517,9 +490,7 @@ const StoryBox = ({ f }: StoryBoxProps) => {
               setComment={setComment30}
               setInputPhase={setInputPhase}
             />
-          ) : (
-            <div></div>
-          ))}
+          ) : null)}
       </>
       <GenRoot>
         <Box>
@@ -804,7 +775,7 @@ const StoryBox = ({ f }: StoryBoxProps) => {
                 <Name
                   onClick={() => {
                     f(window.innerWidth * 2.593);
-                    setComment7Visible(!comment7visible);
+                    setComment8Visible(!comment8visible);
                   }}
                 >
                   두경
@@ -960,7 +931,16 @@ const StoryBox = ({ f }: StoryBoxProps) => {
                 >
                   락현
                 </Name>
-                과 배씨에게는 두명의 딸이 있었다. 첫째 딸은{" "}
+                과 배씨에게는{" "}
+                <Name
+                  onClick={() => {
+                    f(window.innerWidth * 3.881);
+                    setComment12Visible(!comment12visible);
+                  }}
+                >
+                  두명의 딸
+                </Name>
+                이 있었다. 첫째 딸은{" "}
                 <a
                   href="https://ko.wikipedia.org/wiki/%EA%B9%80%ED%95%B4_%EA%B9%80%EC%94%A8"
                   target="_blank"
@@ -996,8 +976,17 @@ const StoryBox = ({ f }: StoryBoxProps) => {
             <Story>
               <p>
                 <Name onClick={() => f(window.innerWidth * 1.627)}>두석</Name>과
-                옥순의 첫째 딸, 수미가 1965년 12월 3일에 태어난다. 한성대학교를
-                졸업했다고 기록되어 있지만 사실이 아닌 듯하다.{" "}
+                옥순의 첫째 딸,
+                <Name
+                  onClick={() => {
+                    f(window.innerWidth * 4.364);
+                    setComment13Visible(!comment13visible);
+                  }}
+                >
+                  수미
+                </Name>
+                가 1965년 12월 3일에 태어난다. 한성대학교를 졸업했다고 기록되어
+                있지만 사실이 아닌 듯하다.{" "}
                 <CommentButton
                   onClick={() => {
                     setCommentTo("수미");
@@ -1013,16 +1002,18 @@ const StoryBox = ({ f }: StoryBoxProps) => {
           <Column>
             <Story>
               <p>
+                <Name onClick={() => f(window.innerWidth * 1.627)}>두석</Name>과
+                옥순의 아들,{" "}
                 <Name
-                  onMouseEnter={() => setComment5Visible(true)}
-                  onMouseLeave={() => setComment5Visible(false)}
-                  onClick={() => f(window.innerWidth * 1.627)}
+                  onClick={() => {
+                    f(window.innerWidth * 4.686);
+                    setComment14Visible(!comment14visible);
+                  }}
                 >
-                  두석
+                  현우
                 </Name>
-                과 옥순의 아들, 현우가 1969년 8월 18일 서울에서 태어난다.
-                국민대학교를 졸업했다고 기록되어 있지만 사실은 서경대학교를
-                졸업했다고 한다. 현우는{" "}
+                가 1969년 8월 18일 서울에서 태어난다. 국민대학교를 졸업했다고
+                기록되어 있지만 사실은 서경대학교를 졸업했다고 한다. 현우는{" "}
                 <a
                   href="https://ko.wikipedia.org/wiki/%EC%A0%84%EC%A3%BC_%EC%9D%B4%EC%94%A8"
                   target="_blank"
@@ -1045,15 +1036,18 @@ const StoryBox = ({ f }: StoryBoxProps) => {
           <Column>
             <Story>
               <p>
+                <Name onClick={() => f(window.innerWidth * 1.627)}>두석</Name>과
+                옥순 둘째 딸,{" "}
                 <Name
-                  onMouseEnter={() => setComment5Visible(true)}
-                  onMouseLeave={() => setComment5Visible(false)}
-                  onClick={() => f(window.innerWidth * 1.627)}
+                  onClick={() => {
+                    f(window.innerWidth * 5.008);
+                    setComment15Visible(!comment15visible);
+                  }}
                 >
-                  두석
+                  현정
                 </Name>
-                과 옥순 둘째 딸, 현정이 1973년 4월 23일에 태어난다. 한양대학교를
-                졸업했다고 기록되어 있지만 사실이 아닌 듯하다.{" "}
+                이 1973년 4월 23일에 태어난다. 한양대학교를 졸업했다고 기록되어
+                있지만 사실이 아닌 듯하다.{" "}
                 <CommentButton
                   onClick={() => {
                     setCommentTo("현정");
@@ -1076,8 +1070,16 @@ const StoryBox = ({ f }: StoryBoxProps) => {
                 >
                   두석
                 </Name>
-                과 옥순 셋째 딸, 수현이 1976년 8월 14일에 태어난다. 상명대학교를
-                졸업했다.{" "}
+                과 옥순 셋째 딸,{" "}
+                <Name
+                  onClick={() => {
+                    f(window.innerWidth * 5.33);
+                    setComment16Visible(!comment16visible);
+                  }}
+                >
+                  수현
+                </Name>
+                이 1976년 8월 14일에 태어난다. 상명대학교를 졸업했다.{" "}
                 <CommentButton
                   onClick={() => {
                     setCommentTo("수현");
@@ -1093,15 +1095,17 @@ const StoryBox = ({ f }: StoryBoxProps) => {
           <Column>
             <Story>
               <p>
+                <Name onClick={() => f(window.innerWidth * 1.949)}>두락</Name>과
+                경자의 아들,{" "}
                 <Name
-                  onMouseEnter={() => setComment6Visible(true)}
-                  onMouseLeave={() => setComment6Visible(false)}
-                  onClick={() => f(window.innerWidth * 1.949)}
+                  onClick={() => {
+                    f(window.innerWidth * 5.652);
+                    setComment17Visible(!comment17visible);
+                  }}
                 >
-                  두락
+                  준필
                 </Name>
-                과 경자의 아들, 준필이 1986년 6월 26일에 태어난다. 연세대학교
-                방송학과를 졸업했다.{" "}
+                이 1986년 6월 26일에 태어난다. 연세대학교 방송학과를 졸업했다.{" "}
                 <CommentButton
                   onClick={() => {
                     setCommentTo("준필");
@@ -1124,10 +1128,18 @@ const StoryBox = ({ f }: StoryBoxProps) => {
                 >
                   두현
                 </Name>
-                과 경선의 첫째 아들, 재성이 1974년 4월 5일에 태어난다.
-                중국심양한의과대학을 졸업했는지는 확실하지 않다. 재성은 가락
-                금씨 영은과 결혼한다. 배우자인 영은은 1968년 3월 20일에
-                태어났으며, 아버지의 성함은 문식이다.{" "}
+                과 경선의 첫째 아들,{" "}
+                <Name
+                  onClick={() => {
+                    f(window.innerWidth * 5.974);
+                    setComment18Visible(!comment18visible);
+                  }}
+                >
+                  재성
+                </Name>
+                이 1974년 4월 5일에 태어난다. 중국심양한의과대학을 졸업했는지는
+                확실하지 않다. 재성은 가락 금씨 영은과 결혼한다. 배우자인 영은은
+                1968년 3월 20일에 태어났으며, 아버지의 성함은 문식이다.{" "}
                 <CommentButton
                   onClick={() => {
                     setCommentTo("재성");
@@ -1150,8 +1162,17 @@ const StoryBox = ({ f }: StoryBoxProps) => {
                 >
                   두현
                 </Name>
-                과 경선의 둘째 아들, 호준이 1976년 3월 19일에 태어난다.
-                고려대학교 행정학과를 졸업했다. 호준은{" "}
+                과 경선의 둘째 아들,{" "}
+                <Name
+                  onClick={() => {
+                    f(window.innerWidth * 6.296);
+                    setComment19Visible(!comment19visible);
+                  }}
+                >
+                  호준
+                </Name>
+                이 1976년 3월 19일에 태어난다. 고려대학교 행정학과를 졸업했다.
+                호준은{" "}
                 <a
                   href="https://ko.wikipedia.org/wiki/%EC%98%81%EC%96%91_%EB%82%A8%EC%94%A8"
                   target="_blank"
@@ -1183,8 +1204,16 @@ const StoryBox = ({ f }: StoryBoxProps) => {
                 >
                   두현
                 </Name>
-                과 경선의 첫째 딸, 정은이 1993년 2월 28일에 태어난다.
-                동서울대학교 전자학과를 졸업했다.{" "}
+                과 경선의 첫째 딸,{" "}
+                <Name
+                  onClick={() => {
+                    f(window.innerWidth * 6.618);
+                    setComment20Visible(!comment20visible);
+                  }}
+                >
+                  정은
+                </Name>
+                이 1993년 2월 28일에 태어난다. 동서울대학교 전자학과를 졸업했다.{" "}
                 <CommentButton
                   onClick={() => {
                     setCommentTo("정은");
@@ -1200,7 +1229,16 @@ const StoryBox = ({ f }: StoryBoxProps) => {
           <Column>
             <Story>
               <p>
-                두경과 숙자의 아들, 현수가 1980년 11월 7일에 태어난다.{" "}
+                두경과 숙자의 아들,{" "}
+                <Name
+                  onClick={() => {
+                    f(window.innerWidth * 6.94);
+                    setComment21Visible(!comment21visible);
+                  }}
+                >
+                  현수
+                </Name>
+                가 1980년 11월 7일에 태어난다.{" "}
                 <CommentButton
                   onClick={() => {
                     setCommentTo("현수");
@@ -1223,8 +1261,17 @@ const StoryBox = ({ f }: StoryBoxProps) => {
                 >
                   경민
                 </Name>
-                과 매화의 첫째 딸, 은정이 1973년 12월 25일에 태어난다. 은정은
-                윤씨 창수와 결혼해, 아들 치환을 낳는다.{" "}
+                과 매화의 첫째 딸,{" "}
+                <Name
+                  onClick={() => {
+                    f(window.innerWidth * 7.262);
+                    setComment22Visible(!comment22visible);
+                  }}
+                >
+                  은정
+                </Name>
+                이 1973년 12월 25일에 태어난다. 은정은 윤씨 창수와 결혼해, 아들
+                치환을 낳는다.{" "}
                 <CommentButton
                   onClick={() => {
                     setCommentTo("은정");
@@ -1247,7 +1294,16 @@ const StoryBox = ({ f }: StoryBoxProps) => {
                 >
                   경민
                 </Name>
-                과 매화의 첫째 아들, 재현이 1975년 5월 5일에 태어난다.{" "}
+                과 매화의 첫째 아들,{" "}
+                <Name
+                  onClick={() => {
+                    f(window.innerWidth * 7.584);
+                    setComment23Visible(!comment23visible);
+                  }}
+                >
+                  재현
+                </Name>
+                이 1975년 5월 5일에 태어난다.{" "}
                 <CommentButton
                   onClick={() => {
                     setCommentTo("재현");
@@ -1270,7 +1326,16 @@ const StoryBox = ({ f }: StoryBoxProps) => {
                 >
                   경민
                 </Name>
-                과 매화의 둘째 아들, 성혁이 1977년 5월 28일에 태어난다.{" "}
+                과 매화의 둘째 아들,{" "}
+                <Name
+                  onClick={() => {
+                    f(window.innerWidth * 7.906);
+                    setComment24Visible(!comment24visible);
+                  }}
+                >
+                  성혁
+                </Name>
+                이 1977년 5월 28일에 태어난다.{" "}
                 <CommentButton
                   onClick={() => {
                     setCommentTo("성혁");
@@ -1293,7 +1358,16 @@ const StoryBox = ({ f }: StoryBoxProps) => {
                 >
                   경민
                 </Name>
-                과 매화의 셋째 아들, 동민이 1979년 8월 9일에 태어난다.{" "}
+                과 매화의 셋째 아들,{" "}
+                <Name
+                  onClick={() => {
+                    f(window.innerWidth * 8.228);
+                    setComment25Visible(!comment25visible);
+                  }}
+                >
+                  동민
+                </Name>
+                이 1979년 8월 9일에 태어난다.{" "}
                 <CommentButton
                   onClick={() => {
                     setCommentTo("동민");
@@ -1314,7 +1388,23 @@ const StoryBox = ({ f }: StoryBoxProps) => {
           <Column>
             <Story>
               <p>
-                현우와 재희의 첫째 딸, 선형이 2001년 9월 3일에 태어난다.{" "}
+                <Name
+                  onClick={() => {
+                    f(window.innerWidth * 4.686);
+                  }}
+                >
+                  현우
+                </Name>
+                와 재희의 첫째 딸,{" "}
+                <Name
+                  onClick={() => {
+                    f(window.innerWidth * 8.711);
+                    setComment26Visible(!comment26visible);
+                  }}
+                >
+                  선형
+                </Name>
+                이 2001년 9월 3일에 태어난다.{" "}
                 <CommentButton
                   onClick={() => {
                     setCommentTo("선형");
@@ -1330,7 +1420,23 @@ const StoryBox = ({ f }: StoryBoxProps) => {
           <Column>
             <Story>
               <p>
-                현우와 재희의 둘째 딸, 소형이 2003년 10월 24일에 태어난다.{" "}
+                <Name
+                  onClick={() => {
+                    f(window.innerWidth * 4.686);
+                  }}
+                >
+                  현우
+                </Name>
+                와 재희의 둘째 딸,{" "}
+                <Name
+                  onClick={() => {
+                    f(window.innerWidth * 9.033);
+                    setComment27Visible(!comment27visible);
+                  }}
+                >
+                  소형
+                </Name>
+                이 2003년 10월 24일에 태어난다.{" "}
                 <CommentButton
                   onClick={() => {
                     setCommentTo("소형");
@@ -1346,7 +1452,23 @@ const StoryBox = ({ f }: StoryBoxProps) => {
           <Column>
             <Story>
               <p>
-                재성과 영은의 첫째 아들, 민기가 2016년 4월 16일에 태어난다.{" "}
+                <Name
+                  onClick={() => {
+                    f(window.innerWidth * 5.974);
+                  }}
+                >
+                  재성
+                </Name>
+                과 영은의 첫째 아들,{" "}
+                <Name
+                  onClick={() => {
+                    f(window.innerWidth * 9.355);
+                    setComment28Visible(!comment28visible);
+                  }}
+                >
+                  민기
+                </Name>
+                가 2016년 4월 16일에 태어난다.{" "}
                 <CommentButton
                   onClick={() => {
                     setCommentTo("민기");
@@ -1362,7 +1484,23 @@ const StoryBox = ({ f }: StoryBoxProps) => {
           <Column>
             <Story>
               <p>
-                호준과 주영의 아들, 태훈이 2007년 11월 26일에 태어난다.{" "}
+                <Name
+                  onClick={() => {
+                    f(window.innerWidth * 6.296);
+                  }}
+                >
+                  호준
+                </Name>
+                과 주영의 아들,{" "}
+                <Name
+                  onClick={() => {
+                    f(window.innerWidth * 9.677);
+                    setComment29Visible(!comment29visible);
+                  }}
+                >
+                  태훈
+                </Name>
+                이 2007년 11월 26일에 태어난다.{" "}
                 <CommentButton
                   onClick={() => {
                     setCommentTo("태훈");
@@ -1378,7 +1516,23 @@ const StoryBox = ({ f }: StoryBoxProps) => {
           <Column>
             <Story>
               <p>
-                호준과 주영의 딸, 민지가 2009년 11월 12일에 태어난다.{" "}
+                <Name
+                  onClick={() => {
+                    f(window.innerWidth * 6.296);
+                  }}
+                >
+                  호준
+                </Name>
+                과 주영의 딸,{" "}
+                <Name
+                  onClick={() => {
+                    f(window.innerWidth * 9.999);
+                    setComment30Visible(!comment30visible);
+                  }}
+                >
+                  민지
+                </Name>
+                가 2009년 11월 12일에 태어난다.{" "}
                 <CommentButton
                   onClick={() => {
                     setCommentTo("민지");
@@ -1430,8 +1584,12 @@ const NavigationBar = ({ f }: NavigationBarProps) => {
       <NavigationBarItem onClick={() => f(window.innerWidth * 1.627)}>
         17대
       </NavigationBarItem>
-      <NavigationBarItem onClick={() => f(11130)}>18대</NavigationBarItem>
-      <NavigationBarItem onClick={() => f(22260)}>19대</NavigationBarItem>
+      <NavigationBarItem onClick={() => f(window.innerWidth * 4.364)}>
+        18대
+      </NavigationBarItem>
+      <NavigationBarItem onClick={() => f(window.innerWidth * 8.711)}>
+        19대
+      </NavigationBarItem>
     </NavigationBarRoot>
   );
 };
