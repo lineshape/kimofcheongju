@@ -1,7 +1,8 @@
 import "./main.css";
-import React, { useRef, useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import ReactDOM from "react-dom";
-import styled from "@emotion/styled";
+// import styled from "@emotion/styled";
+import styled, { keyframes } from "styled-components";
 import { useHorizontalScroll } from "./useSideScroll.tsx";
 
 const App = () => {
@@ -64,6 +65,7 @@ const CommentContent = styled.textarea`
   font-size: 20px;
   resize: none;
   outline: none;
+  line-height: 1.7;
 `;
 const CommentSend = styled.div`
   display: flex;
@@ -160,13 +162,15 @@ const Box = styled.div`
 
 const Column = styled.div`
   position: relative;
+  height: 90vh;
 `;
 
 const Story = styled.div`
   display: flex;
   word-wrap: break-word;
   white-space: pre-wrap;
-
+  position: relative;
+  z-index: 2;
   margin-top: 176px;
   width: 30.6vw;
   height: 200px;
@@ -196,6 +200,7 @@ const Comment = styled.div`
   margin-left: 16.1vw;
   word-wrap: break-word;
   white-space: pre-wrap;
+  z-index: 1;
 
   font-size: 2.5vh;
   line-height: 1.7;
@@ -275,6 +280,40 @@ const StoryBox = ({ f }: StoryBoxProps) => {
   const [comment28visible, setComment28Visible] = useState<boolean>(false);
   const [comment29visible, setComment29Visible] = useState<boolean>(false);
   const [comment30visible, setComment30Visible] = useState<boolean>(false);
+
+  const [reference1, setreference1] = useState<number>(0);
+  const [reference2, setreference2] = useState<number>(0);
+  const [reference3, setreference3] = useState<number>(0);
+  const [reference4, setreference4] = useState<number>(0);
+  const [reference5, setreference5] = useState<number>(0);
+  const [reference6, setreference6] = useState<number>(0);
+  const [reference7, setreference7] = useState<number>(0);
+  const [reference8, setreference8] = useState<number>(0);
+  const [reference9, setreference9] = useState<number>(0);
+  const [reference10, setreference10] = useState<number>(0);
+  const [reference11, setreference11] = useState<number>(0);
+  const [reference12, setreference12] = useState<number>(0);
+  const [reference13, setreference13] = useState<number>(0);
+  const [reference14, setreference14] = useState<number>(0);
+  const [reference15, setreference15] = useState<number>(0);
+  const [reference16, setreference16] = useState<number>(0);
+  const [reference17, setreference17] = useState<number>(0);
+  const [reference18, setreference18] = useState<number>(0);
+  const [reference19, setreference19] = useState<number>(0);
+  const [reference20, setreference20] = useState<number>(0);
+  const [reference21, setreference21] = useState<number>(0);
+  const [reference22, setreference22] = useState<number>(0);
+  const [reference23, setreference23] = useState<number>(0);
+  const [reference24, setreference24] = useState<number>(0);
+  const [reference25, setreference25] = useState<number>(0);
+  const [reference26, setreference26] = useState<number>(0);
+  const [reference27, setreference27] = useState<number>(0);
+  const [reference28, setreference28] = useState<number>(0);
+  const [reference29, setreference29] = useState<number>(0);
+  const [reference30, setreference30] = useState<number>(0);
+
+  const [hiddenText1, setHiddenText1] =
+    useState<string>("한성대학교를 졸업했다.");
 
   return (
     <StoryBoxRoot>
@@ -517,8 +556,20 @@ const StoryBox = ({ f }: StoryBoxProps) => {
                 </a>
                 와 결혼한다. 배우자인 선씨는 신묘년 2월 15일에 태어났으며,
                 아버지의 성함은 선영식이다. 형석은 1959년 5월 4일에 생을
-                마감하고, 가장등 가족묘지에 잠들어있다. 선씨는 1958년 12월
-                20일에 생을 마감하고, 우동간 합봉유비에 잠들어있다.{" "}
+                마감하고,{" "}
+                <span
+                  onClick={() => {
+                    if (reference1 === 1) {
+                      setreference1(0);
+                    } else {
+                      setreference1(1);
+                    }
+                  }}
+                >
+                  가장등 가족묘지
+                </span>
+                에 잠들어있다. 선씨는 1958년 12월 20일에 생을 마감하고, 우동간
+                합봉유비에 잠들어있다.{" "}
                 <CommentButton
                   onClick={() => {
                     setCommentTo("형석");
@@ -530,6 +581,7 @@ const StoryBox = ({ f }: StoryBoxProps) => {
               </p>
             </Story>
             {comment1visible && <Comment>{comment1}</Comment>}
+            {reference1 != 0 && getReference(reference1)}
           </Column>
         </Box>
         <Generation>15대</Generation>
@@ -976,7 +1028,7 @@ const StoryBox = ({ f }: StoryBoxProps) => {
             <Story>
               <p>
                 <Name onClick={() => f(window.innerWidth * 1.627)}>두석</Name>과
-                옥순의 첫째 딸,
+                옥순의 첫째 딸,{" "}
                 <Name
                   onClick={() => {
                     f(window.innerWidth * 4.364);
@@ -985,8 +1037,16 @@ const StoryBox = ({ f }: StoryBoxProps) => {
                 >
                   수미
                 </Name>
-                가 1965년 12월 3일에 태어난다. 한성대학교를 졸업했다고 기록되어
-                있지만 사실이 아닌 듯하다.{" "}
+                가 1965년 12월 3일에 태어난다.{" "}
+                <span
+                  onClick={() =>
+                    setHiddenText1(
+                      "한성대학교를 졸업했다고 기록되어 있지만 사실이 아닌듯하다."
+                    )
+                  }
+                >
+                  {hiddenText1}
+                </span>{" "}
                 <CommentButton
                   onClick={() => {
                     setCommentTo("수미");
@@ -1552,6 +1612,41 @@ const StoryBox = ({ f }: StoryBoxProps) => {
   );
 };
 
+const Reference = styled.div`
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  // top: 0px;
+  bottom: 100px;
+  z-index: 0;
+  bottom: 0px;
+  gap: 20px;
+  padding: 30px;
+
+  font-size: 2.5vh;
+`;
+
+const getReference = (refnum: number) => {
+  switch (refnum) {
+    case 0:
+      return null;
+    case 1:
+      return (
+        <Reference>
+          <img src={"/image1.png"} alt="image1" height={"400px"} />
+          <div>{"가족묘지 위치"}</div>
+        </Reference>
+      );
+    case 2:
+      return (
+        <Reference>
+          <img src={"/image2.png"} alt="image2" height={"400px"} />
+          <div>{"냥냥펀치!!"}</div>
+        </Reference>
+      );
+  }
+};
+
 const NavigationBarRoot = styled.div`
   display: flex;
   height: 40px;
@@ -1576,19 +1671,47 @@ interface NavigationBarProps {
 const NavigationBar = ({ f }: NavigationBarProps) => {
   return (
     <NavigationBarRoot>
-      <NavigationBarItem onClick={() => f(0)}>[청주 김씨]</NavigationBarItem>
-      <NavigationBarItem onClick={() => f(0)}>15대</NavigationBarItem>
-      <NavigationBarItem onClick={() => f(window.innerWidth * 0.5)}>
-        16대
+      <NavigationBarItem>
+        <div onClick={() => f(0)} style={{ cursor: "pointer" }}>
+          [청주 김씨]
+        </div>
       </NavigationBarItem>
-      <NavigationBarItem onClick={() => f(window.innerWidth * 1.627)}>
-        17대
+      <NavigationBarItem>
+        <div onClick={() => f(0)} style={{ cursor: "pointer" }}>
+          15대
+        </div>
       </NavigationBarItem>
-      <NavigationBarItem onClick={() => f(window.innerWidth * 4.364)}>
-        18대
+      <NavigationBarItem>
+        <div
+          onClick={() => f(window.innerWidth * 0.5)}
+          style={{ cursor: "pointer" }}
+        >
+          16대
+        </div>
       </NavigationBarItem>
-      <NavigationBarItem onClick={() => f(window.innerWidth * 8.711)}>
-        19대
+      <NavigationBarItem>
+        <div
+          onClick={() => f(window.innerWidth * 1.627)}
+          style={{ cursor: "pointer" }}
+        >
+          17대
+        </div>
+      </NavigationBarItem>
+      <NavigationBarItem>
+        <div
+          onClick={() => f(window.innerWidth * 4.364)}
+          style={{ cursor: "pointer" }}
+        >
+          18대
+        </div>
+      </NavigationBarItem>
+      <NavigationBarItem>
+        <div
+          onClick={() => f(window.innerWidth * 8.711)}
+          style={{ cursor: "pointer" }}
+        >
+          19대
+        </div>
       </NavigationBarItem>
     </NavigationBarRoot>
   );
