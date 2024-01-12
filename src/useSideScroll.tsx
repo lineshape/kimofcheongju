@@ -1,16 +1,16 @@
 import { useRef, useEffect } from "react";
 
-export function useHorizontalScroll( ): React.RefObject<HTMLDivElement> {
+export function useHorizontalScroll(): React.RefObject<HTMLDivElement> {
   const elRef = useRef<HTMLDivElement>(null);
   useEffect(() => {
     const el = elRef.current;
     if (el) {
-      const onWheel = e => {
+      const onWheel = (e) => {
         if (e.deltaY == 0) return;
         e.preventDefault();
         el.scrollTo({
-          left: el.scrollLeft + 5*e.deltaY,
-          behavior: "smooth"
+          left: el.scrollLeft + 10 * e.deltaY,
+          behavior: "smooth",
         });
       };
       el.addEventListener("wheel", onWheel);
