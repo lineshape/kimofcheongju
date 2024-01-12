@@ -118,9 +118,20 @@ section {
   font-style: normal;
 }
 
+@font-face {
+  font-family: 'GapyeongHanseokbong-Bold';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2312-1@1.1/GapyeongHanseokbong-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+}
+
+/* 본문 글씨 색 바꾸기 */ 
 body {
   line-height: 1;
-  font-family: "agchoijeongho-screen", serif;
+  font-family: 'GapyeongHanseokbong-Bold', serif;
+  font-weight: 700;
+  font-style: normal;
+  color: #C9DA5D;
 }
 ol,
 ul {

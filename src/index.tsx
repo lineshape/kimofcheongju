@@ -136,6 +136,8 @@ const CommentBox = ({
   );
 };
 
+ // 배경색 바꾸기
+
 const StoryBoxRoot = styled.div`
   display: flex;
   flex-direction: row;
@@ -144,8 +146,8 @@ const StoryBoxRoot = styled.div`
   width: 1050vw;
   gap: 17.7vw;
   padding-left: 48px;
-
-  background: #eed555;
+  
+  background: #1C1C1C;
 `;
 const GenRoot = styled.div`
   display: flex;
@@ -192,6 +194,8 @@ const CommentButton = styled.span`
   cursor: pointer;
 `;
 
+// 댓글 글씨색 바꾸기
+
 const Comment = styled.div`
   display: flex;
   width: 30.6vw;
@@ -202,9 +206,10 @@ const Comment = styled.div`
   white-space: pre-wrap;
   z-index: 1;
 
+  font-family: "agchoijeongho-screen", sans-serif;
   font-size: 2.5vh;
   line-height: 1.7;
-  color: #9424bb;
+  color: #646464;
 `;
 
 interface StoryBoxProps {
