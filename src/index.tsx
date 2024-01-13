@@ -1,9 +1,10 @@
 import "./main.css";
-import React, { useState, useEffect, useRef, ReactNode } from "react";
+import React, { useState, useEffect, useRef, forwardRef, ReactNode } from "react";
 import ReactDOM from "react-dom";
 // import styled from "@emotion/styled";
 import styled, { keyframes } from "styled-components";
 import { useHorizontalScroll } from "./useSideScroll.tsx";
+
 
 const App = () => {
   const scrollRef = useHorizontalScroll();
@@ -135,6 +136,8 @@ const CommentBox = ({
   );
 };
 
+
+
  // 배경색 바꾸기
 
 const StoryBoxRoot = styled.div`
@@ -166,7 +169,7 @@ const Column = styled.div`
   height: 90vh;
 `;
 
-const Story = styled.div`
+const StoryStyled = styled.div`
   display: flex;
   word-wrap: break-word;
   white-space: pre-wrap;
@@ -177,7 +180,31 @@ const Story = styled.div`
   height: 200px;
   font-size: 2.5vh;
   line-height: 1.7;
+
+  .scroll-animation {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+  }
+  
+  .scroll-animation-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
 `;
+
+// StoryProps 타입 정의
+interface StoryProps {
+  children: ReactNode;
+}
+
+const Story = forwardRef<HTMLParagraphElement, StoryProps>(({ children }, ref) => (
+  <StoryStyled>
+    <p ref={ref} className="scroll-animation">
+      {children}
+    </p>
+  </StoryStyled>
+));
 
 const Generation = styled.div`
   display: flex;
@@ -216,6 +243,14 @@ interface StoryBoxProps {
 }
 
 const StoryBox = ({ f }: StoryBoxProps) => {
+  const storyRefs = useRef<HTMLElement[]>([]);
+
+  const addToRefs = (el: HTMLParagraphElement | null) => {
+    if (el && !storyRefs.current.includes(el)) {
+      storyRefs.current.push(el);
+    }
+  };
+
   const [inputphase, setInputPhase] = useState<boolean>(false);
   const [commentTo, setCommentTo] = useState<string>("");
   // 15대
@@ -328,6 +363,37 @@ const StoryBox = ({ f }: StoryBoxProps) => {
     const [hiddenText4, setHiddenText4] =
     useState<string>("중국심양한의과대학을 졸업했다.");
 
+   
+  storyRefs.current = []; // 컴포넌트가 재렌더링될 때마다 배열 초기화
+
+ 
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('scroll-animation-visible');
+          } else {
+            entry.target.classList.remove('scroll-animation-visible');
+          }
+        });
+      },
+      { threshold: 0.5 }
+    );
+
+    storyRefs.current.forEach((ref) => {
+      observer.observe(ref);
+    });
+
+    return () => {
+      storyRefs.current.forEach((ref) => {
+        observer.unobserve(ref);
+      });
+    };
+  }, []);
+  
+  
   return (
     <StoryBoxRoot>
       <>
@@ -547,7 +613,7 @@ const StoryBox = ({ f }: StoryBoxProps) => {
       <GenRoot>
         <Box>
           <Column>
-            <Story>
+            <Story ref={addToRefs}>
               <p>
                 동규의 아들,{" "}
                 <Name
@@ -608,7 +674,7 @@ const StoryBox = ({ f }: StoryBoxProps) => {
       <GenRoot>
         <Box>
           <Column>
-            <Story>
+            <Story ref={addToRefs}>
               <p>
                 <Name onClick={() => f(0)}>형석</Name>과 선씨의 첫째 아들,{" "}
                 <Name
@@ -642,7 +708,7 @@ const StoryBox = ({ f }: StoryBoxProps) => {
             {comment2visible && <Comment>{comment2}</Comment>}
           </Column>
           <Column>
-            <Story>
+            <Story ref={addToRefs}>
               <p>
                 <Name onClick={() => f(0)}>형석</Name>과 선씨의 둘째 아들,{" "}
                 <Name
@@ -683,7 +749,7 @@ const StoryBox = ({ f }: StoryBoxProps) => {
             {comment3visible && <Comment>{comment3}</Comment>}
           </Column>
           <Column>
-            <Story>
+            <Story ref={addToRefs}>
               <p>
                 <Name onClick={() => f(0)}>형석</Name>과 선씨의 셋째 아들,{" "}
                 <Name
@@ -729,7 +795,7 @@ const StoryBox = ({ f }: StoryBoxProps) => {
       <GenRoot>
         <Box>
           <Column>
-            <Story>
+            <Story ref={addToRefs}>
               <p>
                 <Name onClick={() => f(window.innerWidth * 0.5)}>락성</Name>과
                 임씨의 첫째 아들,{" "}
@@ -763,7 +829,7 @@ const StoryBox = ({ f }: StoryBoxProps) => {
             {comment5visible && <Comment>{comment5}</Comment>}
           </Column>
           <Column>
-            <Story>
+            <Story ref={addToRefs}>
               <p>
                 <Name onClick={() => f(window.innerWidth * 0.5)}>락성</Name>과
                 임씨의 둘째 아들,{" "}
@@ -796,7 +862,7 @@ const StoryBox = ({ f }: StoryBoxProps) => {
             {comment6visible && <Comment>{comment6}</Comment>}
           </Column>
           <Column>
-            <Story>
+            <Story ref={addToRefs}>
               <p>
                 <Name onClick={() => f(window.innerWidth * 0.5)}>락성</Name>과
                 임씨의 셋째 아들,{" "}
@@ -855,7 +921,7 @@ const StoryBox = ({ f }: StoryBoxProps) => {
             {reference7 != 0 && getReference(reference7)}
           </Column>
           <Column>
-            <Story>
+            <Story ref={addToRefs}>
               <p>
                 <Name onClick={() => f(window.innerWidth * 0.5)}>락성</Name>과
                 임씨의 넷째 아들,{" "}
@@ -888,7 +954,7 @@ const StoryBox = ({ f }: StoryBoxProps) => {
             {comment8visible && <Comment>{comment8}</Comment>}
           </Column>
           <Column>
-            <Story>
+            <Story ref={addToRefs}>
               <p>
                 <Name
                   onMouseEnter={() => setComment2Visible(true)}
@@ -938,7 +1004,7 @@ const StoryBox = ({ f }: StoryBoxProps) => {
             {reference9 != 0 && getReference(reference9)}
           </Column>
           <Column>
-            <Story>
+            <Story ref={addToRefs}>
               <p>
                 <Name onClick={() => f(window.innerWidth * 0.822)}>락민</Name>과
                 안영의 아들,{" "}
@@ -979,7 +1045,7 @@ const StoryBox = ({ f }: StoryBoxProps) => {
             {comment10visible && <Comment>{comment10}</Comment>}
           </Column>
           <Column>
-            <Story>
+            <Story ref={addToRefs}>
               <p>
                 <Name onClick={() => f(window.innerWidth * 0.822)}>락민</Name>과
                 안영에게는{" "}
@@ -1031,7 +1097,7 @@ const StoryBox = ({ f }: StoryBoxProps) => {
             {reference11 != 0 && getReference(reference11)}
           </Column>
           <Column>
-            <Story>
+            <Story ref={addToRefs}>
               <p>
                 <Name
                   onMouseEnter={() => setComment4Visible(true)}
@@ -1093,7 +1159,7 @@ const StoryBox = ({ f }: StoryBoxProps) => {
       <GenRoot>
         <Box>
           <Column>
-            <Story>
+            <Story ref={addToRefs}>
               <p>
                 <Name onClick={() => f(window.innerWidth * 1.627)}>두석</Name>과
                 옥순의 첫째 딸,{" "}
@@ -1128,7 +1194,7 @@ const StoryBox = ({ f }: StoryBoxProps) => {
             {comment13visible && <Comment>{comment13}</Comment>}
           </Column>
           <Column>
-            <Story>
+            <Story ref={addToRefs}>
               <p>
                 <Name onClick={() => f(window.innerWidth * 1.627)}>두석</Name>과
                 옥순의 아들,{" "}
@@ -1169,7 +1235,7 @@ const StoryBox = ({ f }: StoryBoxProps) => {
             {comment14visible && <Comment>{comment14}</Comment>}
           </Column>
           <Column>
-            <Story>
+            <Story ref={addToRefs}>
               <p>
                 <Name onClick={() => f(window.innerWidth * 1.627)}>두석</Name>과
                 옥순 둘째 딸,{" "}
@@ -1203,7 +1269,7 @@ const StoryBox = ({ f }: StoryBoxProps) => {
             {comment15visible && <Comment>{comment15}</Comment>}
           </Column>
           <Column>
-            <Story>
+            <Story ref={addToRefs}>
               <p>
                 <Name
                   onMouseEnter={() => setComment5Visible(true)}
@@ -1235,7 +1301,7 @@ const StoryBox = ({ f }: StoryBoxProps) => {
             {comment16visible && <Comment>{comment16}</Comment>}
           </Column>
           <Column>
-            <Story>
+            <Story ref={addToRefs}>
               <p>
                 <Name onClick={() => f(window.innerWidth * 1.949)}>두락</Name>과
                 경자의 아들,{" "}
@@ -1261,7 +1327,7 @@ const StoryBox = ({ f }: StoryBoxProps) => {
             {comment17visible && <Comment>{comment17}</Comment>}
           </Column>
           <Column>
-            <Story>
+            <Story ref={addToRefs}>
               <p>
                 <Name
                   onClick={() => {
@@ -1307,7 +1373,7 @@ const StoryBox = ({ f }: StoryBoxProps) => {
             {comment18visible && <Comment>{comment18}</Comment>}
           </Column>
           <Column>
-            <Story>
+            <Story ref={addToRefs}>
               <p>
                 <Name
                   onClick={() => {
@@ -1349,7 +1415,7 @@ const StoryBox = ({ f }: StoryBoxProps) => {
             {comment19visible && <Comment>{comment19}</Comment>}
           </Column>
           <Column>
-            <Story>
+            <Story ref={addToRefs}>
               <p>
                 <Name
                   onClick={() => {
@@ -1392,7 +1458,7 @@ const StoryBox = ({ f }: StoryBoxProps) => {
             {reference20 != 0 && getReference(reference20)}
           </Column>
           <Column>
-            <Story>
+            <Story ref={addToRefs}>
               <p>
                 두경과 숙자의 아들,{" "}
                 <Name
@@ -1417,7 +1483,7 @@ const StoryBox = ({ f }: StoryBoxProps) => {
             {comment21visible && <Comment>{comment21}</Comment>}
           </Column>
           <Column>
-            <Story>
+            <Story ref={addToRefs}>
               <p>
                 <Name
                   onClick={() => {
@@ -1450,7 +1516,7 @@ const StoryBox = ({ f }: StoryBoxProps) => {
             {comment22visible && <Comment>{comment22}</Comment>}
           </Column>
           <Column>
-            <Story>
+            <Story ref={addToRefs}>
               <p>
                 <Name
                   onClick={() => {
@@ -1482,7 +1548,7 @@ const StoryBox = ({ f }: StoryBoxProps) => {
             {comment23visible && <Comment>{comment23}</Comment>}
           </Column>
           <Column>
-            <Story>
+            <Story ref={addToRefs}>
               <p>
                 <Name
                   onClick={() => {
@@ -1514,7 +1580,7 @@ const StoryBox = ({ f }: StoryBoxProps) => {
             {comment24visible && <Comment>{comment24}</Comment>}
           </Column>
           <Column>
-            <Story>
+            <Story ref={addToRefs}>
               <p>
                 <Name
                   onClick={() => {
@@ -1551,7 +1617,7 @@ const StoryBox = ({ f }: StoryBoxProps) => {
       <GenRoot>
         <Box>
           <Column>
-            <Story>
+            <Story ref={addToRefs}>
               <p>
                 <Name
                   onClick={() => {
@@ -1595,7 +1661,7 @@ const StoryBox = ({ f }: StoryBoxProps) => {
             {reference26 != 0 && getReference(reference26)}
           </Column>
           <Column>
-            <Story>
+            <Story ref={addToRefs}>
               <p>
                 <Name
                   onClick={() => {
@@ -1627,7 +1693,7 @@ const StoryBox = ({ f }: StoryBoxProps) => {
             {comment27visible && <Comment>{comment27}</Comment>}
           </Column>
           <Column>
-            <Story>
+            <Story ref={addToRefs}>
               <p>
                 <Name
                   onClick={() => {
@@ -1659,7 +1725,7 @@ const StoryBox = ({ f }: StoryBoxProps) => {
             {comment28visible && <Comment>{comment28}</Comment>}
           </Column>
           <Column>
-            <Story>
+            <Story ref={addToRefs}>
               <p>
                 <Name
                   onClick={() => {
@@ -1691,7 +1757,7 @@ const StoryBox = ({ f }: StoryBoxProps) => {
             {comment29visible && <Comment>{comment29}</Comment>}
           </Column>
           <Column>
-            <Story>
+            <Story ref={addToRefs}>
               <p>
                 <Name
                   onClick={() => {
@@ -1931,5 +1997,8 @@ const ShowHelp = () => {
   };
 
  export default ShowHelp;
+
+
+
 
 ReactDOM.render(<App />, document.getElementById("root"));
