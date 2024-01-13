@@ -179,6 +179,22 @@ table {
   }
 }
 
+@keyframes nameColorChange {
+  0% {
+    color: #ffffff;
+  }
+  50% {
+    color: rgb(68, 68, 68);
+  }
+  100% {
+    color: #ffffff;
+  }
+}
+
+.main-name {
+  text-emphasis: open;
+}
+
 .animated-text {
   animation: colorChange 1.5s infinite;
   text-decoration: none;

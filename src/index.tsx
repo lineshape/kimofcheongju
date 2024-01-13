@@ -59,7 +59,7 @@ const CommentContent = styled.textarea`
   display: flex;
   margin-left: 48px;
   margin-right: 48px;
-  color: #C9DA5D;
+  color: #53592D;
   width: auto;
   height: 65%;
   background: #1C1C1C;
@@ -90,13 +90,13 @@ const CommentBox = ({
   setInputPhase,
 }: CommentBoxProps) => {
   const [content, setContent] = useState<string>(
-    "이곳에 전하고 싶은 이야기를 작성해주세요."
+    "이곳에 전하고 싶은 이야기를 작성해주세요. 인물의 이름을 클릭하면 기록된 이야기를 볼 수 있어요."
   );
   const [errormessage, setErrorMessage] = useState<string>("");
 
   const SendComment = () => {
     if (
-      content === "이곳에 전하고 싶은 이야기를 작성해주세요." ||
+      content === "이곳에 전하고 싶은 이야기를 작성해주세요. 인물의 이름을 클릭하면 기록된 이야기를 볼 수 있어요." ||
       content === ""
     ) {
       setErrorMessage("이야기를 입력해주세요.");
@@ -121,7 +121,7 @@ const CommentBox = ({
         onChange={(e) => setContent(e.target.value)}
         onFocus={() => {
           setErrorMessage("");
-          if (content === "이곳에 전하고 싶은 이야기를 작성해주세요.") {
+          if (content === "이곳에 전하고 싶은 이야기를 작성해주세요. 인물의 이름을 클릭하면 기록된 이야기를 볼 수 있어요.") {
             setContent("");
           }
         }}
@@ -230,7 +230,7 @@ const Comment = styled.div`
   margin-left: 16.1vw;
   word-wrap: break-word;
   white-space: pre-wrap;
-  z-index: 1;
+  z-index: 0;
 
   font-family: "agchoijeongho-screen", sans-serif;
   font-size: 2.5vh;
@@ -616,7 +616,7 @@ const StoryBox = ({ f }: StoryBoxProps) => {
             <Story ref={addToRefs}>
               <p>
                 동규의 아들,{" "}
-                <Name
+                <Name className="main-name"
                   onClick={() => {
                     f(0);
                     setComment1Visible(!comment1visible);
@@ -677,7 +677,7 @@ const StoryBox = ({ f }: StoryBoxProps) => {
             <Story ref={addToRefs}>
               <p>
                 <Name onClick={() => f(0)}>형석</Name>과 선씨의 첫째 아들,{" "}
-                <Name
+                <Name className="main-name"
                   onClick={() => {
                     f(window.innerWidth * 0.5);
                     setComment2Visible(!comment2visible);
@@ -711,7 +711,7 @@ const StoryBox = ({ f }: StoryBoxProps) => {
             <Story ref={addToRefs}>
               <p>
                 <Name onClick={() => f(0)}>형석</Name>과 선씨의 둘째 아들,{" "}
-                <Name
+                <Name className="main-name"
                   onClick={() => {
                     f(window.innerWidth * 0.822);
                     setComment3Visible(!comment3visible);
@@ -752,7 +752,7 @@ const StoryBox = ({ f }: StoryBoxProps) => {
             <Story ref={addToRefs}>
               <p>
                 <Name onClick={() => f(0)}>형석</Name>과 선씨의 셋째 아들,{" "}
-                <Name
+                <Name className="main-name"
                   onClick={() => {
                     f(window.innerWidth * 1.144);
                     setComment4Visible(!comment4visible);
@@ -799,7 +799,7 @@ const StoryBox = ({ f }: StoryBoxProps) => {
               <p>
                 <Name onClick={() => f(window.innerWidth * 0.5)}>락성</Name>과
                 임씨의 첫째 아들,{" "}
-                <Name
+                <Name className="main-name"
                   onClick={() => {
                     f(window.innerWidth * 1.627);
                     setComment5Visible(!comment5visible);
@@ -833,7 +833,7 @@ const StoryBox = ({ f }: StoryBoxProps) => {
               <p>
                 <Name onClick={() => f(window.innerWidth * 0.5)}>락성</Name>과
                 임씨의 둘째 아들,{" "}
-                <Name
+                <Name className="main-name"
                   onClick={() => {
                     f(window.innerWidth * 1.949);
                     setComment6Visible(!comment6visible);
@@ -866,7 +866,7 @@ const StoryBox = ({ f }: StoryBoxProps) => {
               <p>
                 <Name onClick={() => f(window.innerWidth * 0.5)}>락성</Name>과
                 임씨의 셋째 아들,{" "}
-                <Name
+                <Name className="main-name"
                   onClick={() => {
                     f(window.innerWidth * 2.271);
                     setComment7Visible(!comment7visible);
@@ -925,7 +925,7 @@ const StoryBox = ({ f }: StoryBoxProps) => {
               <p>
                 <Name onClick={() => f(window.innerWidth * 0.5)}>락성</Name>과
                 임씨의 넷째 아들,{" "}
-                <Name
+                <Name className="main-name"
                   onClick={() => {
                     f(window.innerWidth * 2.593);
                     setComment8Visible(!comment8visible);
@@ -964,7 +964,7 @@ const StoryBox = ({ f }: StoryBoxProps) => {
                   락성
                 </Name>
                 과 임씨에게{" "}
-                <Name
+                <Name className="main-name"
                   onClick={() => {
                     f(window.innerWidth * 2.915);
                     setComment9Visible(!comment9visible);
@@ -1008,7 +1008,7 @@ const StoryBox = ({ f }: StoryBoxProps) => {
               <p>
                 <Name onClick={() => f(window.innerWidth * 0.822)}>락민</Name>과
                 안영의 아들,{" "}
-                <Name
+                <Name className="main-name"
                   onClick={() => {
                     f(window.innerWidth * 3.237);
                     setComment10Visible(!comment10visible);
@@ -1049,7 +1049,7 @@ const StoryBox = ({ f }: StoryBoxProps) => {
               <p>
                 <Name onClick={() => f(window.innerWidth * 0.822)}>락민</Name>과
                 안영에게는{" "}
-                <Name
+                <Name className="main-name"
                   onClick={() => {
                     f(window.innerWidth * 3.559);
                     setComment11Visible(!comment11visible);
@@ -1107,7 +1107,7 @@ const StoryBox = ({ f }: StoryBoxProps) => {
                   락현
                 </Name>
                 과 배씨에게는{" "}
-                <Name
+                <Name className="main-name"
                   onClick={() => {
                     f(window.innerWidth * 3.881);
                     setComment12Visible(!comment12visible);
@@ -1163,7 +1163,7 @@ const StoryBox = ({ f }: StoryBoxProps) => {
               <p>
                 <Name onClick={() => f(window.innerWidth * 1.627)}>두석</Name>과
                 옥순의 첫째 딸,{" "}
-                <Name
+                <Name className="main-name"
                   onClick={() => {
                     f(window.innerWidth * 4.364);
                     setComment13Visible(!comment13visible);
@@ -1198,7 +1198,7 @@ const StoryBox = ({ f }: StoryBoxProps) => {
               <p>
                 <Name onClick={() => f(window.innerWidth * 1.627)}>두석</Name>과
                 옥순의 아들,{" "}
-                <Name
+                <Name className="main-name"
                   onClick={() => {
                     f(window.innerWidth * 4.686);
                     setComment14Visible(!comment14visible);
@@ -1239,7 +1239,7 @@ const StoryBox = ({ f }: StoryBoxProps) => {
               <p>
                 <Name onClick={() => f(window.innerWidth * 1.627)}>두석</Name>과
                 옥순 둘째 딸,{" "}
-                <Name
+                <Name className="main-name"
                   onClick={() => {
                     f(window.innerWidth * 5.008);
                     setComment15Visible(!comment15visible);
@@ -1279,7 +1279,7 @@ const StoryBox = ({ f }: StoryBoxProps) => {
                   두석
                 </Name>
                 과 옥순 셋째 딸,{" "}
-                <Name
+                <Name className="main-name"
                   onClick={() => {
                     f(window.innerWidth * 5.33);
                     setComment16Visible(!comment16visible);
@@ -1305,7 +1305,7 @@ const StoryBox = ({ f }: StoryBoxProps) => {
               <p>
                 <Name onClick={() => f(window.innerWidth * 1.949)}>두락</Name>과
                 경자의 아들,{" "}
-                <Name
+                <Name className="main-name"
                   onClick={() => {
                     f(window.innerWidth * 5.652);
                     setComment17Visible(!comment17visible);
@@ -1337,7 +1337,7 @@ const StoryBox = ({ f }: StoryBoxProps) => {
                   두현
                 </Name>
                 과 경선의 첫째 아들,{" "}
-                <Name
+                <Name className="main-name"
                   onClick={() => {
                     f(window.innerWidth * 5.974);
                     setComment18Visible(!comment18visible);
@@ -1383,7 +1383,7 @@ const StoryBox = ({ f }: StoryBoxProps) => {
                   두현
                 </Name>
                 과 경선의 둘째 아들,{" "}
-                <Name
+                <Name className="main-name"
                   onClick={() => {
                     f(window.innerWidth * 6.296);
                     setComment19Visible(!comment19visible);
@@ -1425,7 +1425,7 @@ const StoryBox = ({ f }: StoryBoxProps) => {
                   두현
                 </Name>
                 과 경선의 첫째 딸,{" "}
-                <Name
+                <Name className="main-name"
                   onClick={() => {
                     f(window.innerWidth * 6.618);
                     setComment20Visible(!comment20visible);
@@ -1461,7 +1461,7 @@ const StoryBox = ({ f }: StoryBoxProps) => {
             <Story ref={addToRefs}>
               <p>
                 두경과 숙자의 아들,{" "}
-                <Name
+                <Name className="main-name"
                   onClick={() => {
                     f(window.innerWidth * 6.94);
                     setComment21Visible(!comment21visible);
@@ -1493,7 +1493,7 @@ const StoryBox = ({ f }: StoryBoxProps) => {
                   경민
                 </Name>
                 과 매화의 첫째 딸,{" "}
-                <Name
+                <Name className="main-name"
                   onClick={() => {
                     f(window.innerWidth * 7.262);
                     setComment22Visible(!comment22visible);
@@ -1526,7 +1526,7 @@ const StoryBox = ({ f }: StoryBoxProps) => {
                   경민
                 </Name>
                 과 매화의 첫째 아들,{" "}
-                <Name
+                <Name className="main-name"
                   onClick={() => {
                     f(window.innerWidth * 7.584);
                     setComment23Visible(!comment23visible);
@@ -1558,7 +1558,7 @@ const StoryBox = ({ f }: StoryBoxProps) => {
                   경민
                 </Name>
                 과 매화의 둘째 아들,{" "}
-                <Name
+                <Name className="main-name"
                   onClick={() => {
                     f(window.innerWidth * 7.906);
                     setComment24Visible(!comment24visible);
@@ -1590,7 +1590,7 @@ const StoryBox = ({ f }: StoryBoxProps) => {
                   경민
                 </Name>
                 과 매화의 셋째 아들,{" "}
-                <Name
+                <Name className="main-name"
                   onClick={() => {
                     f(window.innerWidth * 8.228);
                     setComment25Visible(!comment25visible);
@@ -1627,7 +1627,7 @@ const StoryBox = ({ f }: StoryBoxProps) => {
                   현우
                 </Name>
                 와 재희의 첫째 딸,{" "}
-                <Name
+                <Name className="main-name"
                   onClick={() => {
                     f(window.innerWidth * 8.711);
                     setComment26Visible(!comment26visible);
@@ -1671,7 +1671,7 @@ const StoryBox = ({ f }: StoryBoxProps) => {
                   현우
                 </Name>
                 와 재희의 둘째 딸,{" "}
-                <Name
+                <Name className="main-name"
                   onClick={() => {
                     f(window.innerWidth * 9.033);
                     setComment27Visible(!comment27visible);
@@ -1703,7 +1703,7 @@ const StoryBox = ({ f }: StoryBoxProps) => {
                   재성
                 </Name>
                 과 영은의 첫째 아들,{" "}
-                <Name
+                <Name className="main-name"
                   onClick={() => {
                     f(window.innerWidth * 9.355);
                     setComment28Visible(!comment28visible);
@@ -1735,7 +1735,7 @@ const StoryBox = ({ f }: StoryBoxProps) => {
                   호준
                 </Name>
                 과 주영의 아들,{" "}
-                <Name
+                <Name className="main-name"
                   onClick={() => {
                     f(window.innerWidth * 9.677);
                     setComment29Visible(!comment29visible);
@@ -1767,13 +1767,12 @@ const StoryBox = ({ f }: StoryBoxProps) => {
                   호준
                 </Name>
                 과 주영의 딸,{" "}
-                <Name
+                <Name className="main-name"
                   onClick={() => {
                     f(window.innerWidth * 9.999);
                     setComment30Visible(!comment30visible);
                   }}
-                >x
-                  민지
+                >민지
                 </Name>
                 가 2009년 11월 12일에 태어난다.{" "}
                 <CommentButton
@@ -1802,7 +1801,7 @@ const Reference = styled.div`
   position: absolute;
   // top: 0px;
   bottom: 100px;
-  z-index: 0;
+  z-index: 1;
   bottom: 0px;
   gap: 20px;
 
