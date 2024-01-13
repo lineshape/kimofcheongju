@@ -33,8 +33,8 @@ const App = () => {
 const CommentBoxRoot = styled.div`
   display: flex;
   flex-direction: column;
-  width: 33.3%;
-  height: 33.3%;
+  width: 42%;
+  height: 50%;
   position: fixed;
   z-index: 100;
   top: 50%;
@@ -47,11 +47,11 @@ const CommentBoxRoot = styled.div`
 
 const CommentHeader = styled.div`
   display: flex;
-  margin: 32px 32px 24px 32px;
+  margin: 48px 48px 24px 48px;
   justify-content: space-between;
   height: 40px;
   color: #C9DA5D;
-  font-size: 20px;
+  font-size: 2.5vh;
 `;
 
 const CommentContent = styled.textarea`
@@ -62,7 +62,7 @@ const CommentContent = styled.textarea`
   width: auto;
   height: 65%;
   background: #1C1C1C;
-  font-size: 20px;
+  font-size: 2.5vh;
   resize: none;
   outline: none;
   line-height: 1.7;
@@ -70,9 +70,9 @@ const CommentContent = styled.textarea`
 const CommentSend = styled.div`
   display: flex;
   justify-content: space-between;
-  margin: 24px 32px 24px 32px;
+  margin: 48px 48px 48px 48px;
   color: #C9DA5D;
-  font-size: 20px;
+  font-size: 2.5vh;
 `;
 
 interface CommentBoxProps {
@@ -1706,7 +1706,7 @@ const StoryBox = ({ f }: StoryBoxProps) => {
                     f(window.innerWidth * 9.999);
                     setComment30Visible(!comment30visible);
                   }}
-                >
+                >x
                   민지
                 </Name>
                 가 2009년 11월 12일에 태어난다.{" "}
