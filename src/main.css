@@ -132,6 +132,7 @@ body {
   font-weight: 700;
   font-style: normal;
   color: #C9DA5D;
+  word-break: keep-all;
 }
 ol,
 ul {
@@ -158,3 +159,25 @@ table {
   display: none;
 }
 
+/* 글씨 색 깜빡이는 효과 */
+@keyframes colorChange {
+  0% {
+    color: #C9DA5D;
+  }
+  50% {
+    color: rgb(68, 68, 68);
+  }
+  100% {
+    color: #C9DA5D;
+  }
+}
+
+.animated-text {
+  animation: colorChange 1.5s infinite;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+img {
+  object-fit: contain;
+}

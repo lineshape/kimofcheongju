@@ -186,7 +186,7 @@ const Generation = styled.div`
 `;
 
 const Name = styled.span`
-  color: blue;
+  animation: colorChange 1.5s infinite;
   cursor: pointer;
 `;
 
@@ -319,6 +319,15 @@ const StoryBox = ({ f }: StoryBoxProps) => {
 
   const [hiddenText1, setHiddenText1] =
     useState<string>("한성대학교를 졸업했다.");
+
+    const [hiddenText2, setHiddenText2] =
+    useState<string>("국민대학교를 졸업했다.");
+
+    const [hiddenText3, setHiddenText3] =
+    useState<string>("한양대학교를 졸업했다.");
+
+    const [hiddenText4, setHiddenText4] =
+    useState<string>("중국심양한의과대학을 졸업했다.");
 
   return (
     <StoryBoxRoot>
@@ -551,18 +560,7 @@ const StoryBox = ({ f }: StoryBoxProps) => {
                 >
                   형석
                 </Name>
-                이 고종 병술년 11월 28일에 태어난다. 이후 형석은 선규에게
-                입양된다. 형석은{" "}
-                <a
-                  href="https://ko.wikipedia.org/wiki/%EB%B3%B4%EC%84%B1_%EC%84%A0%EC%94%A8"
-                  target="_blank"
-                >
-                  보성 선씨
-                </a>
-                와 결혼한다. 배우자인 선씨는 신묘년 2월 15일에 태어났으며,
-                아버지의 성함은 선영식이다. 형석은 1959년 5월 4일에 생을
-                마감하고,{" "}
-                <span
+                이 <span className="animated-text"
                   onClick={() => {
                     if (reference1 === 1) {
                       setreference1(0);
@@ -571,10 +569,27 @@ const StoryBox = ({ f }: StoryBoxProps) => {
                     }
                   }}
                 >
-                  가장등 가족묘지
-                </span>
-                에 잠들어있다. 선씨는 1958년 12월 20일에 생을 마감하고, 우동간
-                합봉유비에 잠들어있다.{" "}
+                  고종
+                </span> 병술년 11월 28일에 태어난다. 이후 <span className="animated-text"
+                  onClick={() => {
+                    if (reference1 === 1) {
+                      setreference1(0);
+                    } else {
+                      setreference1(2);
+                    }
+                  }}
+                >
+                  형석은 선규에게 입양된다.
+                </span> 형석은{" "}
+                <a
+                  href="https://ko.wikipedia.org/wiki/%EB%B3%B4%EC%84%B1_%EC%84%A0%EC%94%A8"
+                  target="_blank" className="animated-text"
+                >
+                  보성 선씨
+                </a>
+                와 결혼한다. 배우자인 선씨는 신묘년 2월 15일에 태어났으며,
+                아버지의 성함은 선영식이다. 형석은 1959년 5월 4일에 생을
+                마감하고, 가장등 가족묘지에 잠들어있다. 선씨는 1958년 12월 20일에 생을 마감하고, 우동간 합봉유비에 잠들어있다.{" "}
                 <CommentButton
                   onClick={() => {
                     setCommentTo("형석");
@@ -608,7 +623,7 @@ const StoryBox = ({ f }: StoryBoxProps) => {
                 이 1913년 정월 11일에 태어난다. 락성은{" "}
                 <a
                   href="https://ko.wikipedia.org/wiki/%EC%9E%A5%ED%9D%A5_%EC%9E%84%EC%94%A8"
-                  target="_blank"
+                  target="_blank" className="animated-text"
                 >
                   장흥 임씨
                 </a>
@@ -642,7 +657,7 @@ const StoryBox = ({ f }: StoryBoxProps) => {
                 이 1917년 정월 10일에 태어난다. 락민은{" "}
                 <a
                   href="https://ko.wikipedia.org/wiki/%EA%B2%BD%EC%A3%BC_%EA%B9%80%EC%94%A8"
-                  target="_blank"
+                  target="_blank" className="animated-text"
                 >
                   경주 김씨
                 </a>{" "}
@@ -651,7 +666,7 @@ const StoryBox = ({ f }: StoryBoxProps) => {
                 마감하고,{" "}
                 <a
                   href="https://www.google.com/maps/place/%EA%B2%BD%EA%B8%B0%EB%8F%84+%EC%88%98%EC%9B%90%EC%8B%9C+%EA%B6%8C%EC%84%A0%EA%B5%AC+%ED%83%91%EB%8F%99/data=!4m2!3m1!1s0x357b428a61d2cf27:0x296fe9e040b1b8bf?sa=X&ved=2ahUKEwi94-LVxNWDAxVxm1YBHbmJBpcQ8gF6BAgTEAA"
-                  target="_blank"
+                  target="_blank" className="animated-text"
                 >
                   탑동
                 </a>
@@ -683,7 +698,7 @@ const StoryBox = ({ f }: StoryBoxProps) => {
                 이 1926년 2월 18일에 태어난다. 락현은{" "}
                 <a
                   href="https://ko.wikipedia.org/wiki/%EB%8B%AC%EC%84%B1_%EB%B0%B0%EC%94%A8"
-                  target="_blank"
+                  target="_blank" className="animated-text"
                 >
                   달성 배씨
                 </a>
@@ -692,7 +707,7 @@ const StoryBox = ({ f }: StoryBoxProps) => {
                 마감하고,{" "}
                 <a
                   href="https://www.google.com/maps/place/%EA%B2%BD%EA%B8%B0%EB%8F%84+%EC%88%98%EC%9B%90%EC%8B%9C+%EA%B6%8C%EC%84%A0%EA%B5%AC+%ED%83%91%EB%8F%99/data=!4m2!3m1!1s0x357b428a61d2cf27:0x296fe9e040b1b8bf?sa=X&ved=2ahUKEwi94-LVxNWDAxVxm1YBHbmJBpcQ8gF6BAgTEAA"
-                  target="_blank"
+                  target="_blank" className="animated-text"
                 >
                   탑동
                 </a>
@@ -730,7 +745,7 @@ const StoryBox = ({ f }: StoryBoxProps) => {
                 이 1939년 2월 28일에 태어난다. 두석은{" "}
                 <a
                   href="https://ko.wikipedia.org/wiki/%EA%B9%80%ED%95%B4_%EA%B9%80%EC%94%A8"
-                  target="_blank"
+                  target="_blank" className="animated-text"
                 >
                   김해 김씨
                 </a>{" "}
@@ -764,7 +779,7 @@ const StoryBox = ({ f }: StoryBoxProps) => {
                 이 1945년 10월 18일에 태어난다. 두락은{" "}
                 <a
                   href="https://ko.wikipedia.org/wiki/%EC%9D%B4%EC%B2%9C_%EC%84%9C%EC%94%A8"
-                  target="_blank"
+                  target="_blank" className="animated-text"
                 >
                   이천 서씨
                 </a>{" "}
@@ -795,23 +810,38 @@ const StoryBox = ({ f }: StoryBoxProps) => {
                   두현
                 </Name>
                 이 1948년 2월 15일에 태어난다. 중앙대학교 신문방송학과를
-                졸업하고, 국가경찰공무원을 정년퇴직한다. 대통령 표창장
+                졸업하고, 국가경찰공무원을 정년퇴직한다. <span className="animated-text"
+                  onClick={() => {
+                    if (reference7 === 1) {
+                      setreference7(0);
+                    } else {
+                      setreference7(3);
+                    }
+                  }}
+                >
+                  대통령 표창장
+                </span>{" "}
                 제133613호와 대한민국{" "}
                 <a
                   href="https://www.policemuseum.go.kr/pm_info_new/relic_new_view.asp?lcode=&mcode=&id=4709&page=12&category_1=%C6%F7%BB%F3%B7%F9&category_2=&searchString="
-                  target="blank"
+                  target="blank" className="animated-text"
                 >
                   녹조근정훈장
                 </a>{" "}
                 제78514호를 수상하기도 한다. 두현은{" "}
                 <a
                   href="https://ko.wikipedia.org/wiki/%EA%B9%80%ED%95%B4_%EA%B9%80%EC%94%A8"
-                  target="_blank"
+                  target="_blank" className="animated-text"
                 >
                   김해 김씨
                 </a>{" "}
                 경선과 결혼한다. 배우자인 경선의 아버지의 성함은 김귀수이다.
-                경선은 순천간호전문대학을 졸업했다.{" "}
+                경선은 <a
+                  href="https://encykorea.aks.ac.kr/Article/E0031994"
+                  target="_blank" className="animated-text"
+                >
+                  순천간호전문대학
+                </a>을 졸업했다.{" "}
                 <CommentButton
                   onClick={() => {
                     setCommentTo("두현");
@@ -840,7 +870,7 @@ const StoryBox = ({ f }: StoryBoxProps) => {
                 이 1951년 7월 9일에 태어난다. 두경은{" "}
                 <a
                   href="https://ko.wikipedia.org/wiki/%EB%B0%80%EC%96%91_%EB%B0%95%EC%94%A8"
-                  target="_blank"
+                  target="_blank" className="animated-text"
                 >
                   밀양 박씨
                 </a>{" "}
@@ -879,7 +909,7 @@ const StoryBox = ({ f }: StoryBoxProps) => {
                 도 있었다. 그녀는{" "}
                 <a
                   href="https://ko.wikipedia.org/wiki/%EC%A0%84%EC%A3%BC_%EC%9D%B4%EC%94%A8"
-                  target="_blank"
+                  target="_blank" className="animated-text"
                 >
                   전주 이씨
                 </a>{" "}
@@ -912,7 +942,7 @@ const StoryBox = ({ f }: StoryBoxProps) => {
                 이 1947년 정월 26일에 태어난다. 경민은{" "}
                 <a
                   href="https://ko.wikipedia.org/wiki/%EC%98%81%EA%B4%91_%EA%B9%80%EC%94%A8"
-                  target="_blank"
+                  target="_blank" className="animated-text"
                 >
                   영광 김씨
                 </a>{" "}
@@ -920,7 +950,7 @@ const StoryBox = ({ f }: StoryBoxProps) => {
                 경민은 1984년 6월 6일에 생을 마감하고,{" "}
                 <a
                   href="https://www.google.com/maps/place/%EA%B2%BD%EA%B8%B0%EB%8F%84+%EC%88%98%EC%9B%90%EC%8B%9C+%EA%B6%8C%EC%84%A0%EA%B5%AC+%ED%83%91%EB%8F%99/data=!4m2!3m1!1s0x357b428a61d2cf27:0x296fe9e040b1b8bf?sa=X&ved=2ahUKEwi94-LVxNWDAxVxm1YBHbmJBpcQ8gF6BAgTEAA"
-                  target="_blank"
+                  target="_blank" className="animated-text"
                 >
                   탑동
                 </a>
@@ -953,7 +983,7 @@ const StoryBox = ({ f }: StoryBoxProps) => {
                 이 있었다. 첫째 딸은{" "}
                 <a
                   href="https://ko.wikipedia.org/wiki/%EC%A0%9C%EC%A3%BC_%EA%B3%A0%EC%94%A8"
-                  target="_blank"
+                  target="_blank" className="animated-text"
                 >
                   제주 고씨
                 </a>{" "}
@@ -961,7 +991,7 @@ const StoryBox = ({ f }: StoryBoxProps) => {
                 딸은{" "}
                 <a
                   href="https://ko.wikipedia.org/wiki/%EA%B4%91%EC%82%B0_%EA%B9%80%EC%94%A8"
-                  target="_blank"
+                  target="_blank" className="animated-text"
                 >
                   광산 김씨
                 </a>{" "}
@@ -1000,14 +1030,14 @@ const StoryBox = ({ f }: StoryBoxProps) => {
                 이 있었다. 첫째 딸은{" "}
                 <a
                   href="https://ko.wikipedia.org/wiki/%EA%B9%80%ED%95%B4_%EA%B9%80%EC%94%A8"
-                  target="_blank"
+                  target="_blank" className="animated-text"
                 >
                   김해 김씨
                 </a>{" "}
                 상현과 결혼한다. 둘째 딸은{" "}
                 <a
                   href="https://ko.wikipedia.org/wiki/%EC%9D%B8%EB%8F%99_%EC%9E%A5%EC%94%A8_(%EC%83%81%EC%9E%A5%EA%B5%B0%EA%B3%84)"
-                  target="_blank"
+                  target="_blank" className="animated-text"
                 >
                   인동 장씨
                 </a>{" "}
@@ -1043,10 +1073,10 @@ const StoryBox = ({ f }: StoryBoxProps) => {
                   수미
                 </Name>
                 가 1965년 12월 3일에 태어난다.{" "}
-                <span
+                <span className="animated-text"
                   onClick={() =>
                     setHiddenText1(
-                      "한성대학교를 졸업했다고 기록되어 있지만 사실이 아닌듯하다."
+                      "한성대학교를 졸업했다고 기록되어 있지만 사실이 아닌 듯하다."
                     )
                   }
                 >
@@ -1077,11 +1107,18 @@ const StoryBox = ({ f }: StoryBoxProps) => {
                 >
                   현우
                 </Name>
-                가 1969년 8월 18일 서울에서 태어난다. 국민대학교를 졸업했다고
-                기록되어 있지만 사실은 서경대학교를 졸업했다고 한다. 현우는{" "}
+                가 1969년 8월 18일 서울에서 태어난다. <span className="animated-text"
+                  onClick={() =>
+                    setHiddenText2(
+                      "국민대학교를 졸업했다고 기록되어 있지만 사실은 서경대학교를 졸업했다고 한다."
+                    )
+                  }
+                >
+                  {hiddenText2}
+                </span> 현우는{" "}
                 <a
                   href="https://ko.wikipedia.org/wiki/%EC%A0%84%EC%A3%BC_%EC%9D%B4%EC%94%A8"
-                  target="_blank"
+                  target="_blank" className="animated-text"
                 >
                   전주 이씨
                 </a>{" "}
@@ -1111,8 +1148,15 @@ const StoryBox = ({ f }: StoryBoxProps) => {
                 >
                   현정
                 </Name>
-                이 1973년 4월 23일에 태어난다. 한양대학교를 졸업했다고 기록되어
-                있지만 사실이 아닌 듯하다.{" "}
+                이 1973년 4월 23일에 태어난다. <span className="animated-text"
+                  onClick={() =>
+                    setHiddenText3(
+                      "한양대학교를 졸업했다고 기록되어 있지만 사실이 아닌 듯하다."
+                    )
+                  }
+                >
+                  {hiddenText3}
+                </span>{" "}
                 <CommentButton
                   onClick={() => {
                     setCommentTo("현정");
@@ -1202,8 +1246,20 @@ const StoryBox = ({ f }: StoryBoxProps) => {
                 >
                   재성
                 </Name>
-                이 1974년 4월 5일에 태어난다. 중국심양한의과대학을 졸업했는지는
-                확실하지 않다. 재성은 가락 금씨 영은과 결혼한다. 배우자인 영은은
+                이 1974년 4월 5일에 태어난다. <span className="animated-text"
+                  onClick={() =>
+                    setHiddenText4(
+                      "중국심양한의과대학을 졸업했는지는 확실하지 않다."
+                    )
+                  }
+                >
+                  {hiddenText4}
+                </span> 재성은 <a
+                  href="https://ko.wikipedia.org/wiki/%EB%B4%89%ED%99%94_%EA%B8%88%EC%94%A8"
+                  target="_blank" className="animated-text"
+                >
+                  봉화 금씨
+                </a> 영은과 결혼한다. 배우자인 영은은
                 1968년 3월 20일에 태어났으며, 아버지의 성함은 문식이다.{" "}
                 <CommentButton
                   onClick={() => {
@@ -1240,7 +1296,7 @@ const StoryBox = ({ f }: StoryBoxProps) => {
                 호준은{" "}
                 <a
                   href="https://ko.wikipedia.org/wiki/%EC%98%81%EC%96%91_%EB%82%A8%EC%94%A8"
-                  target="_blank"
+                  target="_blank" className="animated-text"
                 >
                   영양 남씨
                 </a>{" "}
@@ -1620,13 +1676,13 @@ const StoryBox = ({ f }: StoryBoxProps) => {
 const Reference = styled.div`
   display: flex;
   flex-direction: column;
+
   position: absolute;
   // top: 0px;
   bottom: 100px;
   z-index: 0;
   bottom: 0px;
   gap: 20px;
-  padding: 30px;
 
   font-size: 2.5vh;
 `;
@@ -1638,15 +1694,22 @@ const getReference = (refnum: number) => {
     case 1:
       return (
         <Reference>
-          <img src={"/image1.png"} alt="image1" height={"400px"} />
-          <div>{"가족묘지 위치"}</div>
+          <img src={"/image1.jpg"} alt="image1" height={"400px"} width={"300px"} />
+          <div>{"대한민국의 초대 황제 고종. 1864년 즉위했다."}</div>
         </Reference>
       );
     case 2:
       return (
         <Reference>
           <img src={"/image2.png"} alt="image2" height={"400px"} />
-          <div>{"냥냥펀치!!"}</div>
+          <div>{"당시에는 대를 잇기 위해 아들을 입양하는 일이 흔했다."}</div>
+        </Reference>
+      );
+    case 3:
+      return (
+        <Reference>
+          <img src={"/image3.webp"} alt="image3" height={"400px"} />
+          <div>{"asdf"}</div>
         </Reference>
       );
   }
@@ -1678,7 +1741,7 @@ const NavigationBar = ({ f }: NavigationBarProps) => {
     <NavigationBarRoot>
       <NavigationBarItem>
         <div onClick={() => f(0)} style={{ cursor: "pointer" }}>
-          [청주 김씨]
+        청주김씨
         </div>
       </NavigationBarItem>
       <NavigationBarItem>
