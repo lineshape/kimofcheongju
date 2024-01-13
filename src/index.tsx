@@ -251,6 +251,19 @@ const StoryBox = ({ f }: StoryBoxProps) => {
     }
   };
 
+  const [showImage, setShowImage] = useState(false);
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+
+  const handleMouseOver = (event) => {
+    setMousePosition({ x: event.clientX, y: event.clientY });
+    setShowImage(true);
+  };
+
+  const handleMouseOut = () => {
+    setShowImage(false);
+  };
+
+
   const [inputphase, setInputPhase] = useState<boolean>(false);
   const [commentTo, setCommentTo] = useState<string>("");
   // 15대
@@ -392,6 +405,7 @@ const StoryBox = ({ f }: StoryBoxProps) => {
       });
     };
   }, []);
+  
   
   
   return (
@@ -626,6 +640,7 @@ const StoryBox = ({ f }: StoryBoxProps) => {
                   형석
                 </Name>
                 이 <span className="animated-text"
+                onMouseOver={handleMouseOver} onMouseOut={handleMouseOut} 
                   onClick={() => {
                     if (reference1 === 1) {
                       setreference1(0);
@@ -637,7 +652,7 @@ const StoryBox = ({ f }: StoryBoxProps) => {
                   고종
                 </span> 병술년 11월 28일에 태어난다. 이후 <span className="animated-text"
                   onClick={() => {
-                    if (reference1 === 1) {
+                    if (reference1 === 2) {
                       setreference1(0);
                     } else {
                       setreference1(2);
@@ -667,6 +682,19 @@ const StoryBox = ({ f }: StoryBoxProps) => {
             </Story>
             {comment1visible && <Comment>{comment1}</Comment>}
             {reference1 != 0 && getReference(reference1)}
+            {showImage && (
+        <img
+          src="image1.jpg" // 여기에 이미지 경로를 넣으세요.
+          style={{ position: 'absolute',
+            left: (mousePosition.x) - 60,
+            top: (mousePosition.y),
+            zIndex: 1000, // z-index 값 조정
+            width: '200px', // 이미지 너비
+            height: '200px', // 이미지 높이
+          }}
+          alt="고종"
+        />
+      )}
           </Column>
         </Box>
         <Generation>15대</Generation>
@@ -1812,13 +1840,6 @@ const getReference = (refnum: number) => {
   switch (refnum) {
     case 0:
       return null;
-    case 1:
-      return (
-        <Reference>
-          <img src={"/image1.jpg"} alt="image1" height={"400px"} width={"300px"} />
-          <div>{"대한민국의 초대 황제 고종. 1864년 즉위했다."}</div>
-        </Reference>
-      );
     case 2:
       return (
         <Reference>
