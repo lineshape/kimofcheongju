@@ -125,6 +125,13 @@ section {
   font-style: normal;
 }
 
+@font-face {
+  font-family: 'ChosunKm';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@1.0/ChosunKm.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
 /* 본문 글씨 색 바꾸기 */ 
 body {
   line-height: 1;

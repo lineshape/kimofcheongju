@@ -113,7 +113,7 @@ const CommentBox = ({
           style={{ textDecoration: "underline" }}
         >{`'${name}'에게 전할 이야기가 있나요?`}</div>
         <div style={{ cursor: "pointer" }} onClick={() => setInputPhase(false)}>
-          X
+          닫기
         </div>
       </CommentHeader>
       <CommentContent
@@ -812,7 +812,7 @@ const StoryBox = ({ f }: StoryBoxProps) => {
                 이 1948년 2월 15일에 태어난다. 중앙대학교 신문방송학과를
                 졸업하고, 국가경찰공무원을 정년퇴직한다. <span className="animated-text"
                   onClick={() => {
-                    if (reference7 === 1) {
+                    if (reference7 === 3) {
                       setreference7(0);
                     } else {
                       setreference7(3);
@@ -853,6 +853,7 @@ const StoryBox = ({ f }: StoryBoxProps) => {
               </p>
             </Story>
             {comment7visible && <Comment>{comment7}</Comment>}
+            {reference7 != 0 && getReference(reference7)}
           </Column>
           <Column>
             <Story>
@@ -906,7 +907,17 @@ const StoryBox = ({ f }: StoryBoxProps) => {
                 >
                   한명의 딸
                 </Name>
-                도 있었다. 그녀는{" "}
+                도 있었다. <span className="animated-text"
+                  onClick={() => {
+                    if (reference9 === 4) {
+                      setreference9(0);
+                    } else {
+                      setreference9(4);
+                    }
+                  }}
+                >
+                  이름은 알 수 없다.
+                </span> 그녀는{" "}
                 <a
                   href="https://ko.wikipedia.org/wiki/%EC%A0%84%EC%A3%BC_%EC%9D%B4%EC%94%A8"
                   target="_blank" className="animated-text"
@@ -925,6 +936,7 @@ const StoryBox = ({ f }: StoryBoxProps) => {
               </p>
             </Story>
             {comment9visible && <Comment>{comment9}</Comment>}
+            {reference9 != 0 && getReference(reference9)}
           </Column>
           <Column>
             <Story>
@@ -980,7 +992,17 @@ const StoryBox = ({ f }: StoryBoxProps) => {
                 >
                   두명의 딸
                 </Name>
-                이 있었다. 첫째 딸은{" "}
+                이 있었다. <span className="animated-text"
+                  onClick={() => {
+                    if (reference11 === 5) {
+                      setreference11(0);
+                    } else {
+                      setreference11(5);
+                    }
+                  }}
+                >
+                  이름은 알 수 없다.
+                </span> 첫째 딸은{" "}
                 <a
                   href="https://ko.wikipedia.org/wiki/%EC%A0%9C%EC%A3%BC_%EA%B3%A0%EC%94%A8"
                   target="_blank" className="animated-text"
@@ -1007,6 +1029,7 @@ const StoryBox = ({ f }: StoryBoxProps) => {
               </p>
             </Story>
             {comment11visible && <Comment>{comment11}</Comment>}
+            {reference11 != 0 && getReference(reference11)}
           </Column>
           <Column>
             <Story>
@@ -1027,7 +1050,17 @@ const StoryBox = ({ f }: StoryBoxProps) => {
                 >
                   두명의 딸
                 </Name>
-                이 있었다. 첫째 딸은{" "}
+                이 있었다. <span className="animated-text"
+                  onClick={() => {
+                    if (reference12 === 6) {
+                      setreference12(0);
+                    } else {
+                      setreference12(6);
+                    }
+                  }}
+                >
+                  이름은 알 수 없다.
+                </span> 첫째 딸은{" "}
                 <a
                   href="https://ko.wikipedia.org/wiki/%EA%B9%80%ED%95%B4_%EA%B9%80%EC%94%A8"
                   target="_blank" className="animated-text"
@@ -1053,6 +1086,7 @@ const StoryBox = ({ f }: StoryBoxProps) => {
               </p>
             </Story>
             {comment12visible && <Comment>{comment12}</Comment>}
+            {reference12 != 0 && getReference(reference12)}
           </Column>
         </Box>
         <Generation>17대</Generation>
@@ -1334,7 +1368,17 @@ const StoryBox = ({ f }: StoryBoxProps) => {
                 >
                   정은
                 </Name>
-                이 1993년 2월 28일에 태어난다. 동서울대학교 전자학과를 졸업했다.{" "}
+                이 1993년 2월 28일에 태어난다. <span className="animated-text"
+                  onClick={() => {
+                    if (reference20 === 7) {
+                      setreference20(0);
+                    } else {
+                      setreference20(7);
+                    }
+                  }}
+                >
+                  동서울대학교
+                </span> 전자학과를 졸업했다.{" "}
                 <CommentButton
                   onClick={() => {
                     setCommentTo("정은");
@@ -1346,6 +1390,7 @@ const StoryBox = ({ f }: StoryBoxProps) => {
               </p>
             </Story>
             {comment20visible && <Comment>{comment20}</Comment>}
+            {reference20 != 0 && getReference(reference20)}
           </Column>
           <Column>
             <Story>
@@ -1525,7 +1570,18 @@ const StoryBox = ({ f }: StoryBoxProps) => {
                 >
                   선형
                 </Name>
-                이 2001년 9월 3일에 태어난다.{" "}
+                이 <span className="animated-text"
+                  onClick={() => {
+                    if (reference26 === 8) {
+                      setreference26(0);
+                    } else {
+                      setreference26(8);
+                    }
+                  }}
+                >
+                  2001년 9월 3일에 태어난다.
+                </span>
+{" "}
                 <CommentButton
                   onClick={() => {
                     setCommentTo("선형");
@@ -1537,6 +1593,7 @@ const StoryBox = ({ f }: StoryBoxProps) => {
               </p>
             </Story>
             {comment26visible && <Comment>{comment26}</Comment>}
+            {reference26 != 0 && getReference(reference26)}
           </Column>
           <Column>
             <Story>
@@ -1709,9 +1766,45 @@ const getReference = (refnum: number) => {
       return (
         <Reference>
           <img src={"/image3.webp"} alt="image3" height={"400px"} />
-          <div>{"asdf"}</div>
+          <div>{"이렇게 생겼다고 한다."}</div>
         </Reference>
       );
+      case 4:
+      return (
+        <Reference>
+          <img src={"/족보여자.PNG"} alt="image4" height={"400px"} />
+          <div>{"당시에는 딸의 이름 대신 딸의 배우자 이름이 기록되곤 했다."}</div>
+        </Reference>
+      );
+      case 5:
+      return (
+        <Reference>
+          <img src={"/족보여자.PNG"} alt="image5" height={"400px"} />
+          <div>{"당시에는 딸의 이름 대신 딸의 배우자 이름이 기록되곤 했다."}</div>
+        </Reference>
+      );
+      case 6:
+      return (
+        <Reference>
+          <img src={"/족보여자.PNG"} alt="image6" height={"400px"} />
+          <div>{"당시에는 딸의 이름 대신 딸의 배우자 이름이 기록되곤 했다."}</div>
+        </Reference>
+      );
+      case 7:
+      return (
+        <Reference>
+          <img src={"/동서울.PNG"} alt="image7" height={"400px"} />
+          <div>{"‘서울’만 매우 크게 쓰여있어 헷갈릴 뻔했다."}</div>
+        </Reference>
+      );
+      case 8:
+        return (
+          <Reference>
+            <img src={"/선형.jpg"} alt="image8" height={"400px"} />
+            <div>{"그로부터 약 22년 뒤 이 웹사이트를 기획하고 디자인했다."}</div>
+          </Reference>
+        );
+
   }
 };
 
@@ -1737,11 +1830,15 @@ interface NavigationBarProps {
   f: (positionX: number) => void;
 }
 const NavigationBar = ({ f }: NavigationBarProps) => {
+  const [isHovered, setIsHovered] = useState(false);
   return (
     <NavigationBarRoot>
       <NavigationBarItem>
-        <div onClick={() => f(0)} style={{ cursor: "pointer" }}>
-        청주김씨
+        <div onClick={() => f(0)} style={{ cursor: "pointer", fontFamily: isHovered ? 'ChosunKm' : 'GapyeongHanseokbong-Bold', }}
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+        >
+        {isHovered ? '淸州金氏' : '청주김씨'}
         </div>
       </NavigationBarItem>
       <NavigationBarItem>
