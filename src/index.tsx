@@ -33,23 +33,24 @@ const App = () => {
 const CommentBoxRoot = styled.div`
   display: flex;
   flex-direction: column;
-  width: 601px;
-  height: 408px;
+  width: 33.3%;
+  height: 33.3%;
   position: fixed;
   z-index: 100;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background: #000;
-  gap: 24px;
+  background: #1C1C1C;
+  // gap: 24px;
+  box-shadow: 0px 0px 20px 5px rgba(201,218,93,.5);
 `;
 
 const CommentHeader = styled.div`
   display: flex;
-  margin: 24px 24px 0px 24px;
+  margin: 32px 32px 24px 32px;
   justify-content: space-between;
   height: 40px;
-  color: #eed555;
+  color: #C9DA5D;
   font-size: 20px;
 `;
 
@@ -57,11 +58,10 @@ const CommentContent = styled.textarea`
   display: flex;
   margin-left: 48px;
   margin-right: 48px;
-  color: #eed555;
-  width: 505px;
-  height: 232px;
-  background: #000;
-  border: 1px solid black;
+  color: #C9DA5D;
+  width: auto;
+  height: 65%;
+  background: #1C1C1C;
   font-size: 20px;
   resize: none;
   outline: none;
@@ -70,9 +70,8 @@ const CommentContent = styled.textarea`
 const CommentSend = styled.div`
   display: flex;
   justify-content: space-between;
-  margin-left: 24px;
-  margin-right: 24px;
-  color: #eed555;
+  margin: 24px 32px 24px 32px;
+  color: #C9DA5D;
   font-size: 20px;
 `;
 
