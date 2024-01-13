@@ -1,5 +1,5 @@
 import "./main.css";
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, ReactNode } from "react";
 import ReactDOM from "react-dom";
 // import styled from "@emotion/styled";
 import styled, { keyframes } from "styled-components";
@@ -25,7 +25,7 @@ const App = () => {
           <StoryBox f={scrollToPosition}></StoryBox>
         </div>
       </div>
-      <ShowHelp />
+      <ShowHelp/>
     </>
   );
 };
@@ -1724,16 +1724,53 @@ const NavigationBar = ({ f }: NavigationBarProps) => {
 
 const ShowHelpRoot = styled.div`
   display: flex;
+  flex-direction: column;
+  align-items: flex-end;
   position: fixed;
   bottom: 51px;
   right: 48px;
   z-index: 100;
-
   font-size: 2.5rem;
+  white-space: normal;
+  line-height: 0.8;
+
+  height: 40px; // 기본 높이와 넓이
+
+  &:hover {
+    height: 128px; // 호버 시 높이
+    transform: translateY(-88px);
+  }
 `;
 
+
 const ShowHelp = () => {
-  return <ShowHelpRoot>☛전할 이야기가 있나요?</ShowHelpRoot>;
-};
+    // 텍스트 상태 관리
+    const [hiddenText, setHiddenText] = useState<ReactNode>('☛ 전할 이야기가 있나요?');
+
+    // 마우스가 컴포넌트 위에 올라갔을 때 실행될 함수
+    const handleMouseEnter = () => {
+      setHiddenText(
+      <>
+      <span>각 문단의 ☛ 버튼을</span><br />
+      <span>클릭하면 해당 문단의</span><br />
+      <span>주인공과 관련된 이야기를</span><br />
+      <span>추가할 수 있어요.</span>
+      </>
+      );
+    };
+
+    // 마우스가 컴포넌트를 벗어났을 때 실행될 함수
+    const handleMouseLeave = () => {
+      setHiddenText('☛ 전할 이야기가 있나요?');
+    };
+
+    return (
+      <ShowHelpRoot onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+        {hiddenText}
+      </ShowHelpRoot>
+    );
+  };
+
+ export default ShowHelp;
 
 ReactDOM.render(<App />, document.getElementById("root"));
