@@ -110,7 +110,8 @@ const CommentBox = ({
     <CommentBoxRoot>
       <CommentHeader>
         <div
-          style={{ textDecoration: "underline" }}
+          style={{ textDecoration: "underline dotted 3px", textUnderlineOffset: 
+        "12px" }}
         >{`'${name}'에게 전할 이야기가 있나요?`}</div>
         <div style={{ cursor: "pointer" }} onClick={() => setInputPhase(false)}>
           닫기
@@ -124,6 +125,9 @@ const CommentBox = ({
           if (content === "이곳에 전하고 싶은 이야기를 작성해주세요. 인물의 이름을 클릭하면 기록된 이야기를 볼 수 있어요.") {
             setContent("");
           }
+        }}
+        style={{
+          color: content === "이곳에 전하고 싶은 이야기를 작성해주세요. 인물의 이름을 클릭하면 기록된 이야기를 볼 수 있어요." || content === "" ? '#53592D' : '#C9DA5D'
         }}
       ></CommentContent>
       <CommentSend>
@@ -367,14 +371,44 @@ const StoryBox = ({ f }: StoryBoxProps) => {
   const [hiddenText1, setHiddenText1] =
     useState<string>("한성대학교를 졸업했다.");
 
+    const [toggleText1, setToggleText1] = useState<boolean>(false);
+
+const toggleHiddenText1 = () => {
+    setToggleText1(!toggleText1);
+    setHiddenText1(toggleText1 ? "한성대학교를 졸업했다." : "한성대학교를 졸업했다고 기록되어 있지만 사실이 아닌 듯하다.");
+};
+
+
     const [hiddenText2, setHiddenText2] =
     useState<string>("국민대학교를 졸업했다.");
+
+    const [toggleText2, setToggleText2] = useState<boolean>(false);
+
+const toggleHiddenText2 = () => {
+    setToggleText2(!toggleText2);
+    setHiddenText2(toggleText2 ? "국민대학교를 졸업했다." : "국민대학교를 졸업했다고 기록되어 있지만 사실은 서경대학교를 졸업했다고 한다.");
+};
 
     const [hiddenText3, setHiddenText3] =
     useState<string>("한양대학교를 졸업했다.");
 
+    const [toggleText3, setToggleText3] = useState<boolean>(false);
+
+const toggleHiddenText3 = () => {
+    setToggleText3(!toggleText3);
+    setHiddenText3(toggleText3 ? "한양대학교를 졸업했다." : "한양대학교를 졸업했다고 기록되어 있지만 사실이 아닌 듯하다.");
+};
+
+
     const [hiddenText4, setHiddenText4] =
     useState<string>("중국심양한의과대학을 졸업했다.");
+
+    const [toggleText4, setToggleText4] = useState<boolean>(false);
+
+const toggleHiddenText4 = () => {
+    setToggleText4(!toggleText4);
+    setHiddenText4(toggleText4 ? "중국심양한의과대학을 졸업했다." : "중국심양한의과대학을 졸업했는지는 확실하지 않다.");
+};
 
    
   storyRefs.current = []; // 컴포넌트가 재렌더링될 때마다 배열 초기화
@@ -1321,11 +1355,7 @@ const StoryBox = ({ f }: StoryBoxProps) => {
                 </Name>
                 가 1965년 12월 3일에 태어난다.{" "}
                 <span className="animated-text"
-                  onClick={() =>
-                    setHiddenText1(
-                      "한성대학교를 졸업했다고 기록되어 있지만 사실이 아닌 듯하다."
-                    )
-                  }
+                  onClick={toggleHiddenText1}
                 >
                   {hiddenText1}
                 </span>{" "}
@@ -1355,11 +1385,7 @@ const StoryBox = ({ f }: StoryBoxProps) => {
                   현우
                 </Name>
                 가 1969년 8월 18일 서울에서 태어난다. <span className="animated-text"
-                  onClick={() =>
-                    setHiddenText2(
-                      "국민대학교를 졸업했다고 기록되어 있지만 사실은 서경대학교를 졸업했다고 한다."
-                    )
-                  }
+                  onClick={toggleHiddenText2}
                 >
                   {hiddenText2}
                 </span> 현우는{" "}
@@ -1396,11 +1422,7 @@ const StoryBox = ({ f }: StoryBoxProps) => {
                   현정
                 </Name>
                 이 1973년 4월 23일에 태어난다. <span className="animated-text"
-                  onClick={() =>
-                    setHiddenText3(
-                      "한양대학교를 졸업했다고 기록되어 있지만 사실이 아닌 듯하다."
-                    )
-                  }
+                  onClick={toggleHiddenText3}
                 >
                   {hiddenText3}
                 </span>{" "}
@@ -1494,11 +1516,7 @@ const StoryBox = ({ f }: StoryBoxProps) => {
                   재성
                 </Name>
                 이 1974년 4월 5일에 태어난다. <span className="animated-text"
-                  onClick={() =>
-                    setHiddenText4(
-                      "중국심양한의과대학을 졸업했는지는 확실하지 않다."
-                    )
-                  }
+                  onClick={toggleHiddenText4}
                 >
                   {hiddenText4}
                 </span> 재성은 <a
