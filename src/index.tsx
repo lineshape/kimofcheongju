@@ -267,40 +267,40 @@ const StoryBox = ({ f }: StoryBoxProps) => {
   const [inputphase, setInputPhase] = useState<boolean>(false);
   const [commentTo, setCommentTo] = useState<string>("");
   // 15대
-  const [comment1, setComment1] = useState<string>(""); // 형석
+  const [comment1, setComment1] = useState<string>(localStorage.getItem('comment1') || ""); // 형석
   // 16대
-  const [comment2, setComment2] = useState<string>(""); // 락성
-  const [comment3, setComment3] = useState<string>(""); // 락민
-  const [comment4, setComment4] = useState<string>(""); // 락현
+  const [comment2, setComment2] = useState<string>(localStorage.getItem('comment2') || ""); // 락성
+  const [comment3, setComment3] = useState<string>(localStorage.getItem('comment3') || ""); // 락민
+  const [comment4, setComment4] = useState<string>(localStorage.getItem('comment4') || ""); // 락현
   // 17대
-  const [comment5, setComment5] = useState<string>(""); // 두석
-  const [comment6, setComment6] = useState<string>(""); // 두락
-  const [comment7, setComment7] = useState<string>(""); // 두현
-  const [comment8, setComment8] = useState<string>(""); // 두경
-  const [comment9, setComment9] = useState<string>(""); // 락성과 임씨의 딸
-  const [comment10, setComment10] = useState<string>(""); // 경민
-  const [comment11, setComment11] = useState<string>(""); // 락민과 안영의 두 딸
-  const [comment12, setComment12] = useState<string>(""); // 락현과 배씨의 두 딸
+  const [comment5, setComment5] = useState<string>(localStorage.getItem('comment5') || ""); // 두석
+  const [comment6, setComment6] = useState<string>(localStorage.getItem('comment6') || ""); // 두락
+  const [comment7, setComment7] = useState<string>(localStorage.getItem('comment7') || ""); // 두현
+  const [comment8, setComment8] = useState<string>(localStorage.getItem('comment8') || ""); // 두경
+  const [comment9, setComment9] = useState<string>(localStorage.getItem('comment9') || ""); // 락성과 임씨의 딸
+  const [comment10, setComment10] = useState<string>(localStorage.getItem('comment10') || ""); // 경민
+  const [comment11, setComment11] = useState<string>(localStorage.getItem('comment11') || ""); // 락민과 안영의 두 딸
+  const [comment12, setComment12] = useState<string>(localStorage.getItem('comment12') || ""); // 락현과 배씨의 두 딸
   // 18대
-  const [comment13, setComment13] = useState<string>(""); // 수미
-  const [comment14, setComment14] = useState<string>(""); // 현우
-  const [comment15, setComment15] = useState<string>(""); // 현정
-  const [comment16, setComment16] = useState<string>(""); // 수현
-  const [comment17, setComment17] = useState<string>(""); // 준필
-  const [comment18, setComment18] = useState<string>(""); // 재성
-  const [comment19, setComment19] = useState<string>(""); // 호준
-  const [comment20, setComment20] = useState<string>(""); // 정은
-  const [comment21, setComment21] = useState<string>(""); // 현수
-  const [comment22, setComment22] = useState<string>(""); // 은정
-  const [comment23, setComment23] = useState<string>(""); // 재현
-  const [comment24, setComment24] = useState<string>(""); // 성혁
-  const [comment25, setComment25] = useState<string>(""); // 동민
+  const [comment13, setComment13] = useState<string>(localStorage.getItem('comment13') || ""); // 수미
+  const [comment14, setComment14] = useState<string>(localStorage.getItem('comment14') || ""); // 현우
+  const [comment15, setComment15] = useState<string>(localStorage.getItem('comment15') || ""); // 현정
+  const [comment16, setComment16] = useState<string>(localStorage.getItem('comment16') || ""); // 수현
+  const [comment17, setComment17] = useState<string>(localStorage.getItem('comment17') || ""); // 준필
+  const [comment18, setComment18] = useState<string>(localStorage.getItem('comment18') || ""); // 재성
+  const [comment19, setComment19] = useState<string>(localStorage.getItem('comment19') || ""); // 호준
+  const [comment20, setComment20] = useState<string>(localStorage.getItem('comment20') || ""); // 정은
+  const [comment21, setComment21] = useState<string>(localStorage.getItem('comment21') || ""); // 현수
+  const [comment22, setComment22] = useState<string>(localStorage.getItem('comment22') || ""); // 은정
+  const [comment23, setComment23] = useState<string>(localStorage.getItem('comment23') || ""); // 재현
+  const [comment24, setComment24] = useState<string>(localStorage.getItem('comment24') || ""); // 성혁
+  const [comment25, setComment25] = useState<string>(localStorage.getItem('comment25') || ""); // 동민
   // 19대
-  const [comment26, setComment26] = useState<string>(""); // 선형
-  const [comment27, setComment27] = useState<string>(""); // 소형
-  const [comment28, setComment28] = useState<string>(""); // 민기
-  const [comment29, setComment29] = useState<string>(""); // 태훈
-  const [comment30, setComment30] = useState<string>(""); // 민지
+  const [comment26, setComment26] = useState<string>(localStorage.getItem('comment26') || ""); // 선형
+  const [comment27, setComment27] = useState<string>(localStorage.getItem('comment27') || ""); // 소형
+  const [comment28, setComment28] = useState<string>(localStorage.getItem('comment28') || ""); // 민기
+  const [comment29, setComment29] = useState<string>(localStorage.getItem('comment29') || ""); // 태훈
+  const [comment30, setComment30] = useState<string>(localStorage.getItem('comment30') || ""); // 민지
 
   const [comment1visible, setComment1Visible] = useState<boolean>(false);
   const [comment2visible, setComment2Visible] = useState<boolean>(false);
@@ -407,7 +407,127 @@ const StoryBox = ({ f }: StoryBoxProps) => {
   }, []);
   
   
-  
+  useEffect(() => {
+    localStorage.setItem('comment1', comment1);
+  }, [comment1]);
+
+  useEffect(() => {
+    localStorage.setItem('comment2', comment2);
+  }, [comment2]);
+
+  useEffect(() => {
+    localStorage.setItem('comment3', comment3);
+  }, [comment3]);
+
+  useEffect(() => {
+    localStorage.setItem('comment4', comment4);
+  }, [comment4]);
+
+  useEffect(() => {
+    localStorage.setItem('comment5', comment5);
+  }, [comment5]);
+
+  useEffect(() => {
+    localStorage.setItem('comment6', comment6);
+  }, [comment6]);
+
+  useEffect(() => {
+    localStorage.setItem('comment7', comment7);
+  }, [comment7]);
+
+  useEffect(() => {
+    localStorage.setItem('comment8', comment8);
+  }, [comment8]);
+
+  useEffect(() => {
+    localStorage.setItem('comment9', comment9);
+  }, [comment9]);
+
+  useEffect(() => {
+    localStorage.setItem('comment10', comment10);
+  }, [comment10]);
+
+  useEffect(() => {
+    localStorage.setItem('comment11', comment11);
+  }, [comment11]);
+
+  useEffect(() => {
+    localStorage.setItem('comment12', comment12);
+  }, [comment12]);
+
+  useEffect(() => {
+    localStorage.setItem('comment13', comment13);
+  }, [comment13]);
+
+  useEffect(() => {
+    localStorage.setItem('comment14', comment14);
+  }, [comment14]);
+
+  useEffect(() => {
+    localStorage.setItem('comment15', comment15);
+  }, [comment15]);
+
+  useEffect(() => {
+    localStorage.setItem('comment16', comment16);
+  }, [comment16]);
+
+  useEffect(() => {
+    localStorage.setItem('comment17', comment17);
+  }, [comment17]);
+
+  useEffect(() => {
+    localStorage.setItem('comment18', comment18);
+  }, [comment18]);
+
+  useEffect(() => {
+    localStorage.setItem('comment19', comment19);
+  }, [comment19]);
+
+  useEffect(() => {
+    localStorage.setItem('comment20', comment20);
+  }, [comment20]);
+
+  useEffect(() => {
+    localStorage.setItem('comment21', comment21);
+  }, [comment21]);
+
+  useEffect(() => {
+    localStorage.setItem('comment22', comment22);
+  }, [comment22]);
+
+  useEffect(() => {
+    localStorage.setItem('comment23', comment23);
+  }, [comment23]);
+
+  useEffect(() => {
+    localStorage.setItem('comment24', comment24);
+  }, [comment24]);
+
+  useEffect(() => {
+    localStorage.setItem('comment25', comment25);
+  }, [comment25]);
+
+  useEffect(() => {
+    localStorage.setItem('comment26', comment26);
+  }, [comment26]);
+
+  useEffect(() => {
+    localStorage.setItem('comment27', comment27);
+  }, [comment27]);
+
+  useEffect(() => {
+    localStorage.setItem('comment28', comment28);
+  }, [comment28]);
+
+  useEffect(() => {
+    localStorage.setItem('comment29', comment29);
+  }, [comment29]);
+
+  useEffect(() => {
+    localStorage.setItem('comment30', comment30);
+  }, [comment30]);
+
+
   return (
     <StoryBoxRoot>
       <>
