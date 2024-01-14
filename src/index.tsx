@@ -236,7 +236,7 @@ const Comment = styled.div`
   white-space: pre-wrap;
   z-index: 0;
 
-  font-family: "agchoijeongho-screen", sans-serif;
+  font-family: 'DAEAM_LEE_TAE_JOON', serif;
   font-size: 2.5vh;
   line-height: 1.7;
   color: #646464;
@@ -255,17 +255,52 @@ const StoryBox = ({ f }: StoryBoxProps) => {
     }
   };
 
-  const [showImage, setShowImage] = useState(false);
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+ const [showImage, setShowImage] = useState(false);
+const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
 
-  const handleMouseOver = (event) => {
-    setMousePosition({ x: event.clientX, y: event.clientY });
+  // const handleMouseOver = (event) => {
+   // setMousePosition({ x: event.clientX, y: event.clientY });
+   // setShowImage1(true);
+  // };
+
+  // const handleMouseOut = () => {
+   // setShowImage1(false);
+ //  };
+
+ const imagesInfo = {
+  '고종': { src: 'image1.jpg', alt: '고종' },
+  '장흥 임씨': { src: 'Jhlim.png', alt: '장흥 임씨' },
+  // 추가 텍스트와 이미지 정보를 여기에 추가
+};
+
+const [currentImage, setCurrentImage] = useState({ src: '', alt: '' });
+const [activeText, setActiveText] = useState('');
+
+const handleMouseOver = (text, event) => {
+  if (imagesInfo[text]) {
+    setCurrentImage(imagesInfo[text]);
     setShowImage(true);
-  };
+    setActiveText(text);
+    setMousePosition({ x: event.clientX, y: event.clientY });  // 이벤트의 위치 정보 사용
+  }
+};
 
-  const handleMouseOut = () => {
-    setShowImage(false);
+
+const handleMouseOut = () => {
+  setShowImage(false);
+  setActiveText(''); // 활성화된 텍스트 초기화
+};
+
+const handleMouseMove = (e) => {
+  setMousePosition({ x: e.clientX, y: e.clientY });
+};
+
+useEffect(() => {
+  window.addEventListener('mousemove', handleMouseMove);
+  return () => {
+    window.removeEventListener('mousemove', handleMouseMove);
   };
+}, []);
 
 
   const [inputphase, setInputPhase] = useState<boolean>(false);
@@ -793,18 +828,8 @@ const toggleHiddenText4 = () => {
                 >
                   형석
                 </Name>
-                이 <span className="animated-text"
-                onMouseOver={handleMouseOver} onMouseOut={handleMouseOut} 
-                  onClick={() => {
-                    if (reference1 === 1) {
-                      setreference1(0);
-                    } else {
-                      setreference1(1);
-                    }
-                  }}
-                >
-                  고종
-                </span> 병술년 11월 28일에 태어난다. 이후 <span className="animated-text"
+                이 <a href="https://ko.wikipedia.org/wiki/%EA%B3%A0%EC%A2%85_(%EB%8C%80%ED%95%9C%EC%A0%9C%EA%B5%AD)" className="animated-text"
+                onMouseOver={(e) => handleMouseOver('고종', e)} onMouseOut={handleMouseOut}>고종</a> 병술년 11월 28일에 태어난다. 이후 <span className="animated-text"
                   onClick={() => {
                     if (reference1 === 2) {
                       setreference1(0);
@@ -836,19 +861,20 @@ const toggleHiddenText4 = () => {
             </Story>
             {comment1visible && <Comment>{comment1}</Comment>}
             {reference1 != 0 && getReference(reference1)}
-            {showImage && (
-        <img
-          src="image1.jpg" // 여기에 이미지 경로를 넣으세요.
-          style={{ position: 'absolute',
-            left: (mousePosition.x) - 60,
-            top: (mousePosition.y),
-            zIndex: 1000, // z-index 값 조정
-            width: '200px', // 이미지 너비
-            height: '200px', // 이미지 높이
-          }}
-          alt="고종"
-        />
-      )}
+            {showImage && activeText === '고종' && (
+  <img
+    src={currentImage.src}
+    alt={currentImage.alt}
+    style={{
+      position: 'absolute',
+      left: mousePosition.x,
+      top: mousePosition.y,
+      zIndex: 1000,
+      width: '250px',
+      height: '250px',
+    }}
+  />
+)}
           </Column>
         </Box>
         <Generation>15대</Generation>
@@ -870,7 +896,7 @@ const toggleHiddenText4 = () => {
                 이 1913년 정월 11일에 태어난다. 락성은{" "}
                 <a
                   href="https://ko.wikipedia.org/wiki/%EC%9E%A5%ED%9D%A5_%EC%9E%84%EC%94%A8"
-                  target="_blank" className="animated-text"
+                  target="_blank" className="animated-text" onMouseOver={(e) => handleMouseOver('장흥 임씨', e)} onMouseOut={handleMouseOut}
                 >
                   장흥 임씨
                 </a>
@@ -888,7 +914,23 @@ const toggleHiddenText4 = () => {
               </p>
             </Story>
             {comment2visible && <Comment>{comment2}</Comment>}
-          </Column>
+            {showImage && activeText === '장흥 임씨' && (
+  <img
+    src={currentImage.src}
+    alt={currentImage.alt}
+    style={{
+      position: 'absolute',
+      left: mousePosition.x > window.innerWidth / 2 
+          ? `calc(${mousePosition.x}px - ${window.innerWidth/2}px)` 
+          : (mousePosition.x - 150) + 'px',
+      top: mousePosition.y + 'px',
+      zIndex: 1000,
+      width: '250px',
+      height: '250px',
+    }}
+  />
+)}
+        </Column>
           <Column>
             <Story ref={addToRefs}>
               <p>
@@ -1963,6 +2005,8 @@ const toggleHiddenText4 = () => {
 const Reference = styled.div`
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
+  width: 30.6vw;
 
   position: absolute;
   // top: 0px;
@@ -1972,6 +2016,22 @@ const Reference = styled.div`
   gap: 20px;
 
   font-size: 2.5vh;
+
+  img {
+    max-width: 100%; // 이미지의 최대 너비를 Reference 컴포넌트의 너비로 제한
+    height: auto;
+    max-height: 450px;
+  }
+
+  div {
+    max-width: 100%; 
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    white-space: pre-wrap;
+    font-family: 'DAEAM_LEE_TAE_JOON', serif;
+    line-height: 1.7;
+    color: #B3B3B3; 
+  }
 `;
 
 const getReference = (refnum: number) => {
@@ -1981,49 +2041,49 @@ const getReference = (refnum: number) => {
     case 2:
       return (
         <Reference>
-          <img src={"/image2.png"} alt="image2" height={"400px"} />
+          <img src={"/image2.png"} alt="image2"  />
           <div>{"당시에는 대를 잇기 위해 아들을 입양하는 일이 흔했다."}</div>
         </Reference>
       );
     case 3:
       return (
         <Reference>
-          <img src={"/image3.webp"} alt="image3" height={"400px"} />
+          <img src={"/image3.webp"} alt="image3"  />
           <div>{"이렇게 생겼다고 한다."}</div>
         </Reference>
       );
       case 4:
       return (
         <Reference>
-          <img src={"/족보여자.PNG"} alt="image4" height={"400px"} />
+          <img src={"/족보여자.PNG"} alt="image4"  />
           <div>{"당시에는 딸의 이름 대신 딸의 배우자 이름이 기록되곤 했다."}</div>
         </Reference>
       );
       case 5:
       return (
         <Reference>
-          <img src={"/족보여자.PNG"} alt="image5" height={"400px"} />
+          <img src={"/족보여자.PNG"} alt="image5" />
           <div>{"당시에는 딸의 이름 대신 딸의 배우자 이름이 기록되곤 했다."}</div>
         </Reference>
       );
       case 6:
       return (
         <Reference>
-          <img src={"/족보여자.PNG"} alt="image6" height={"400px"} />
+          <img src={"/족보여자.PNG"} alt="image6"  />
           <div>{"당시에는 딸의 이름 대신 딸의 배우자 이름이 기록되곤 했다."}</div>
         </Reference>
       );
       case 7:
       return (
         <Reference>
-          <img src={"/동서울.PNG"} alt="image7" height={"400px"} />
+          <img src={"/동서울.PNG"} alt="image7"  />
           <div>{"‘서울’만 매우 크게 쓰여있어 헷갈릴 뻔했다."}</div>
         </Reference>
       );
       case 8:
         return (
           <Reference>
-            <img src={"/선형.jpg"} alt="image8" height={"400px"} />
+            <img src={"/선형.jpg"} alt="image8"  />
             <div>{"그로부터 약 22년 뒤 이 웹사이트를 기획하고 디자인했다."}</div>
           </Reference>
         );
