@@ -234,6 +234,7 @@ const Comment = styled.div`
   margin-left: 16.1vw;
   overflow-wrap: break-word;
   word-wrap: break-word;
+  word-break: break-all;
   white-space: pre-wrap;
   z-index: 0;
 
@@ -823,7 +824,7 @@ const toggleHiddenText4 = () => {
                 <Name className="main-name"
                   onClick={() => {
                     f(0);
-                    setComment1Visible(!comment1visible);
+                    // setComment1Visible(!comment1visible);
                     setCommentTo("형석");
                   }}
                 >
@@ -860,7 +861,8 @@ const toggleHiddenText4 = () => {
                 </CommentButton>
               </p>
             </Story>
-            {comment1visible && <Comment>{comment1}</Comment>}
+            {/* {comment1visible && <Comment>{comment1}</Comment>} */}
+            <Comment>{comment1}</Comment>
             {reference1 != 0 && getReference(reference1)}
             {showImage && activeText === '고종' && (
   <img
@@ -889,7 +891,7 @@ const toggleHiddenText4 = () => {
                 <Name className="main-name"
                   onClick={() => {
                     f(window.innerWidth * 0.5);
-                    setComment2Visible(!comment2visible);
+                    // setComment2Visible(!comment2visible);
                   }}
                 >
                   락성
@@ -914,7 +916,8 @@ const toggleHiddenText4 = () => {
                 </CommentButton>
               </p>
             </Story>
-            {comment2visible && <Comment>{comment2}</Comment>}
+            {/* {comment2visible && <Comment>{comment2}</Comment>} */}
+            <Comment>{comment2}</Comment>
             {showImage && activeText === '장흥 임씨' && (
   <img
     src={currentImage.src}
@@ -939,7 +942,7 @@ const toggleHiddenText4 = () => {
                 <Name className="main-name"
                   onClick={() => {
                     f(window.innerWidth * 0.822);
-                    setComment3Visible(!comment3visible);
+                    // setComment3Visible(!comment3visible);
                   }}
                 >
                   락민
@@ -971,7 +974,8 @@ const toggleHiddenText4 = () => {
                 </CommentButton>
               </p>
             </Story>
-            {comment3visible && <Comment>{comment3}</Comment>}
+            {/* {comment3visible && <Comment>{comment3}</Comment>} */}
+            <Comment>{comment3}</Comment>
           </Column>
           <Column>
             <Story ref={addToRefs}>
@@ -980,7 +984,7 @@ const toggleHiddenText4 = () => {
                 <Name className="main-name"
                   onClick={() => {
                     f(window.innerWidth * 1.144);
-                    setComment4Visible(!comment4visible);
+                   // setComment4Visible(!comment4visible);
                   }}
                 >
                   락현
@@ -1012,7 +1016,8 @@ const toggleHiddenText4 = () => {
                 </CommentButton>
               </p>
             </Story>
-            {comment4visible && <Comment>{comment4}</Comment>}
+            {/* {comment4visible && <Comment>{comment4}</Comment>} */}
+            <Comment>{comment4}</Comment>
           </Column>
         </Box>
         <Generation>16대</Generation>
@@ -1027,7 +1032,7 @@ const toggleHiddenText4 = () => {
                 <Name className="main-name"
                   onClick={() => {
                     f(window.innerWidth * 1.627);
-                    setComment5Visible(!comment5visible);
+                  //   setComment5Visible(!comment5visible);
                   }}
                 >
                   두석
@@ -1051,7 +1056,8 @@ const toggleHiddenText4 = () => {
                 </CommentButton>
               </p>
             </Story>
-            {comment5visible && <Comment>{comment5}</Comment>}
+            {/* {comment5visible && <Comment>{comment5}</Comment>} */}
+            <Comment>{comment5}</Comment>
           </Column>
           <Column>
             <Story ref={addToRefs}>
@@ -1061,7 +1067,7 @@ const toggleHiddenText4 = () => {
                 <Name className="main-name"
                   onClick={() => {
                     f(window.innerWidth * 1.949);
-                    setComment6Visible(!comment6visible);
+                   // setComment6Visible(!comment6visible);
                   }}
                 >
                   두락
@@ -1084,7 +1090,8 @@ const toggleHiddenText4 = () => {
                 </CommentButton>
               </p>
             </Story>
-            {comment6visible && <Comment>{comment6}</Comment>}
+            {/* {comment6visible && <Comment>{comment6}</Comment>} */}
+            <Comment>{comment6}</Comment>
           </Column>
           <Column>
             <Story ref={addToRefs}>
@@ -1094,7 +1101,7 @@ const toggleHiddenText4 = () => {
                 <Name className="main-name"
                   onClick={() => {
                     f(window.innerWidth * 2.271);
-                    setComment7Visible(!comment7visible);
+                   // setComment7Visible(!comment7visible);
                   }}
                 >
                   두현
@@ -1142,7 +1149,8 @@ const toggleHiddenText4 = () => {
                 </CommentButton>
               </p>
             </Story>
-            {comment7visible && <Comment>{comment7}</Comment>}
+            {/* {comment7visible && <Comment>{comment7}</Comment>} */}
+            <Comment>{comment7}</Comment>
             {reference7 != 0 && getReference(reference7)}
           </Column>
           <Column>
@@ -1153,7 +1161,7 @@ const toggleHiddenText4 = () => {
                 <Name className="main-name"
                   onClick={() => {
                     f(window.innerWidth * 2.593);
-                    setComment8Visible(!comment8visible);
+                   // setComment8Visible(!comment8visible);
                   }}
                 >
                   두경
@@ -1176,7 +1184,8 @@ const toggleHiddenText4 = () => {
                 </CommentButton>
               </p>
             </Story>
-            {comment8visible && <Comment>{comment8}</Comment>}
+            {/* {comment8visible && <Comment>{comment8}</Comment>} */}
+            <Comment>{comment8}</Comment>
           </Column>
           <Column>
             <Story ref={addToRefs}>
@@ -1192,7 +1201,7 @@ const toggleHiddenText4 = () => {
                 <Name className="main-name"
                   onClick={() => {
                     f(window.innerWidth * 2.915);
-                    setComment9Visible(!comment9visible);
+                    // setComment9Visible(!comment9visible);
                   }}
                 >
                   한명의 딸
@@ -1225,7 +1234,8 @@ const toggleHiddenText4 = () => {
                 </CommentButton>
               </p>
             </Story>
-            {comment9visible && <Comment>{comment9}</Comment>}
+            {/* {comment9visible && <Comment>{comment9}</Comment>} */}
+            <Comment>{comment9}</Comment>
             {reference9 != 0 && getReference(reference9)}
           </Column>
           <Column>
@@ -1236,7 +1246,7 @@ const toggleHiddenText4 = () => {
                 <Name className="main-name"
                   onClick={() => {
                     f(window.innerWidth * 3.237);
-                    setComment10Visible(!comment10visible);
+                   // setComment10Visible(!comment10visible);
                   }}
                 >
                   경민
@@ -1267,7 +1277,8 @@ const toggleHiddenText4 = () => {
                 </CommentButton>
               </p>
             </Story>
-            {comment10visible && <Comment>{comment10}</Comment>}
+            {/* {comment10visible && <Comment>{comment10}</Comment>} */}
+            <Comment>{comment10}</Comment>
           </Column>
           <Column>
             <Story ref={addToRefs}>
@@ -1277,7 +1288,7 @@ const toggleHiddenText4 = () => {
                 <Name className="main-name"
                   onClick={() => {
                     f(window.innerWidth * 3.559);
-                    setComment11Visible(!comment11visible);
+                   // setComment11Visible(!comment11visible);
                   }}
                 >
                   두명의 딸
@@ -1318,7 +1329,8 @@ const toggleHiddenText4 = () => {
                 </CommentButton>
               </p>
             </Story>
-            {comment11visible && <Comment>{comment11}</Comment>}
+            {/* {comment11visible && <Comment>{comment11}</Comment>} */}
+            <Comment>{comment11}</Comment>
             {reference11 != 0 && getReference(reference11)}
           </Column>
           <Column>
@@ -1335,7 +1347,7 @@ const toggleHiddenText4 = () => {
                 <Name className="main-name"
                   onClick={() => {
                     f(window.innerWidth * 3.881);
-                    setComment12Visible(!comment12visible);
+                  //  setComment12Visible(!comment12visible);
                   }}
                 >
                   두명의 딸
@@ -1375,7 +1387,8 @@ const toggleHiddenText4 = () => {
                 </CommentButton>
               </p>
             </Story>
-            {comment12visible && <Comment>{comment12}</Comment>}
+            {/* {comment12visible && <Comment>{comment12}</Comment>} */}
+            <Comment>{comment12}</Comment>
             {reference12 != 0 && getReference(reference12)}
           </Column>
         </Box>
@@ -1391,7 +1404,7 @@ const toggleHiddenText4 = () => {
                 <Name className="main-name"
                   onClick={() => {
                     f(window.innerWidth * 4.364);
-                    setComment13Visible(!comment13visible);
+                   // setComment13Visible(!comment13visible);
                   }}
                 >
                   수미
@@ -1412,7 +1425,8 @@ const toggleHiddenText4 = () => {
                 </CommentButton>
               </p>
             </Story>
-            {comment13visible && <Comment>{comment13}</Comment>}
+            {/* {comment13visible && <Comment>{comment13}</Comment>} */}
+            <Comment>{comment13}</Comment>
           </Column>
           <Column>
             <Story ref={addToRefs}>
@@ -1422,7 +1436,7 @@ const toggleHiddenText4 = () => {
                 <Name className="main-name"
                   onClick={() => {
                     f(window.innerWidth * 4.686);
-                    setComment14Visible(!comment14visible);
+                   // setComment14Visible(!comment14visible);
                   }}
                 >
                   현우
@@ -1449,7 +1463,8 @@ const toggleHiddenText4 = () => {
                 </CommentButton>
               </p>
             </Story>
-            {comment14visible && <Comment>{comment14}</Comment>}
+            {/* {comment14visible && <Comment>{comment14}</Comment>} */}
+            <Comment>{comment14}</Comment>
           </Column>
           <Column>
             <Story ref={addToRefs}>
@@ -1459,7 +1474,7 @@ const toggleHiddenText4 = () => {
                 <Name className="main-name"
                   onClick={() => {
                     f(window.innerWidth * 5.008);
-                    setComment15Visible(!comment15visible);
+                   // setComment15Visible(!comment15visible);
                   }}
                 >
                   현정
@@ -1479,7 +1494,8 @@ const toggleHiddenText4 = () => {
                 </CommentButton>
               </p>
             </Story>
-            {comment15visible && <Comment>{comment15}</Comment>}
+            {/* {comment15visible && <Comment>{comment15}</Comment>} */}
+            <Comment>{comment15}</Comment>
           </Column>
           <Column>
             <Story ref={addToRefs}>
@@ -1495,7 +1511,7 @@ const toggleHiddenText4 = () => {
                 <Name className="main-name"
                   onClick={() => {
                     f(window.innerWidth * 5.33);
-                    setComment16Visible(!comment16visible);
+                   // setComment16Visible(!comment16visible);
                   }}
                 >
                   수현
@@ -1511,7 +1527,8 @@ const toggleHiddenText4 = () => {
                 </CommentButton>
               </p>
             </Story>
-            {comment16visible && <Comment>{comment16}</Comment>}
+            {/* {comment16visible && <Comment>{comment16}</Comment>} */}
+            <Comment>{comment16}</Comment>
           </Column>
           <Column>
             <Story ref={addToRefs}>
@@ -1521,7 +1538,7 @@ const toggleHiddenText4 = () => {
                 <Name className="main-name"
                   onClick={() => {
                     f(window.innerWidth * 5.652);
-                    setComment17Visible(!comment17visible);
+                   // setComment17Visible(!comment17visible);
                   }}
                 >
                   준필
@@ -1537,7 +1554,8 @@ const toggleHiddenText4 = () => {
                 </CommentButton>
               </p>
             </Story>
-            {comment17visible && <Comment>{comment17}</Comment>}
+            {/* {comment17visible && <Comment>{comment17}</Comment>} */}
+            <Comment>{comment17}</Comment>
           </Column>
           <Column>
             <Story ref={addToRefs}>
@@ -1553,7 +1571,7 @@ const toggleHiddenText4 = () => {
                 <Name className="main-name"
                   onClick={() => {
                     f(window.innerWidth * 5.974);
-                    setComment18Visible(!comment18visible);
+                   // setComment18Visible(!comment18visible);
                   }}
                 >
                   재성
@@ -1579,7 +1597,8 @@ const toggleHiddenText4 = () => {
                 </CommentButton>
               </p>
             </Story>
-            {comment18visible && <Comment>{comment18}</Comment>}
+            {/* {comment18visible && <Comment>{comment18}</Comment>} */}
+            <Comment>{comment18}</Comment>
           </Column>
           <Column>
             <Story ref={addToRefs}>
@@ -1595,7 +1614,7 @@ const toggleHiddenText4 = () => {
                 <Name className="main-name"
                   onClick={() => {
                     f(window.innerWidth * 6.296);
-                    setComment19Visible(!comment19visible);
+                   // setComment19Visible(!comment19visible);
                   }}
                 >
                   호준
@@ -1621,7 +1640,8 @@ const toggleHiddenText4 = () => {
                 </CommentButton>
               </p>
             </Story>
-            {comment19visible && <Comment>{comment19}</Comment>}
+            {/* {comment19visible && <Comment>{comment19}</Comment>} */}
+            <Comment>{comment19}</Comment>
           </Column>
           <Column>
             <Story ref={addToRefs}>
@@ -1637,7 +1657,7 @@ const toggleHiddenText4 = () => {
                 <Name className="main-name"
                   onClick={() => {
                     f(window.innerWidth * 6.618);
-                    setComment20Visible(!comment20visible);
+                   // setComment20Visible(!comment20visible);
                   }}
                 >
                   정은
@@ -1663,7 +1683,8 @@ const toggleHiddenText4 = () => {
                 </CommentButton>
               </p>
             </Story>
-            {comment20visible && <Comment>{comment20}</Comment>}
+            {/* {comment20visible && <Comment>{comment20}</Comment>} */}
+            <Comment>{comment20}</Comment>
             {reference20 != 0 && getReference(reference20)}
           </Column>
           <Column>
@@ -1673,7 +1694,7 @@ const toggleHiddenText4 = () => {
                 <Name className="main-name"
                   onClick={() => {
                     f(window.innerWidth * 6.94);
-                    setComment21Visible(!comment21visible);
+                   // setComment21Visible(!comment21visible);
                   }}
                 >
                   현수
@@ -1689,7 +1710,8 @@ const toggleHiddenText4 = () => {
                 </CommentButton>
               </p>
             </Story>
-            {comment21visible && <Comment>{comment21}</Comment>}
+            {/* {comment21visible && <Comment>{comment21}</Comment>} */}
+            <Comment>{comment21}</Comment>
           </Column>
           <Column>
             <Story ref={addToRefs}>
@@ -1705,7 +1727,7 @@ const toggleHiddenText4 = () => {
                 <Name className="main-name"
                   onClick={() => {
                     f(window.innerWidth * 7.262);
-                    setComment22Visible(!comment22visible);
+                   // setComment22Visible(!comment22visible);
                   }}
                 >
                   은정
@@ -1722,7 +1744,8 @@ const toggleHiddenText4 = () => {
                 </CommentButton>
               </p>
             </Story>
-            {comment22visible && <Comment>{comment22}</Comment>}
+            {/* {comment22visible && <Comment>{comment22}</Comment>} */}
+            <Comment>{comment22}</Comment>
           </Column>
           <Column>
             <Story ref={addToRefs}>
@@ -1738,7 +1761,7 @@ const toggleHiddenText4 = () => {
                 <Name className="main-name"
                   onClick={() => {
                     f(window.innerWidth * 7.584);
-                    setComment23Visible(!comment23visible);
+                   // setComment23Visible(!comment23visible);
                   }}
                 >
                   재현
@@ -1754,7 +1777,8 @@ const toggleHiddenText4 = () => {
                 </CommentButton>
               </p>
             </Story>
-            {comment23visible && <Comment>{comment23}</Comment>}
+            {/* {comment23visible && <Comment>{comment23}</Comment>} */}
+            <Comment>{comment23}</Comment>
           </Column>
           <Column>
             <Story ref={addToRefs}>
@@ -1770,7 +1794,7 @@ const toggleHiddenText4 = () => {
                 <Name className="main-name"
                   onClick={() => {
                     f(window.innerWidth * 7.906);
-                    setComment24Visible(!comment24visible);
+                   // setComment24Visible(!comment24visible);
                   }}
                 >
                   성혁
@@ -1786,7 +1810,8 @@ const toggleHiddenText4 = () => {
                 </CommentButton>
               </p>
             </Story>
-            {comment24visible && <Comment>{comment24}</Comment>}
+            {/* {comment24visible && <Comment>{comment24}</Comment>} */}
+            <Comment>{comment24}</Comment>
           </Column>
           <Column>
             <Story ref={addToRefs}>
@@ -1802,7 +1827,7 @@ const toggleHiddenText4 = () => {
                 <Name className="main-name"
                   onClick={() => {
                     f(window.innerWidth * 8.228);
-                    setComment25Visible(!comment25visible);
+                   // setComment25Visible(!comment25visible);
                   }}
                 >
                   동민
@@ -1818,7 +1843,8 @@ const toggleHiddenText4 = () => {
                 </CommentButton>
               </p>
             </Story>
-            {comment25visible && <Comment>{comment25}</Comment>}
+            {/* {comment25visible && <Comment>{comment25}</Comment>} */}
+            <Comment>{comment25}</Comment>
           </Column>
         </Box>
         <Generation>18대</Generation>
@@ -1839,7 +1865,7 @@ const toggleHiddenText4 = () => {
                 <Name className="main-name"
                   onClick={() => {
                     f(window.innerWidth * 8.711);
-                    setComment26Visible(!comment26visible);
+                   // setComment26Visible(!comment26visible);
                   }}
                 >
                   선형
@@ -1866,7 +1892,8 @@ const toggleHiddenText4 = () => {
                 </CommentButton>
               </p>
             </Story>
-            {comment26visible && <Comment>{comment26}</Comment>}
+            {/* {comment26visible && <Comment>{comment26}</Comment>} */}
+            <Comment>{comment26}</Comment>
             {reference26 != 0 && getReference(reference26)}
           </Column>
           <Column>
@@ -1883,7 +1910,7 @@ const toggleHiddenText4 = () => {
                 <Name className="main-name"
                   onClick={() => {
                     f(window.innerWidth * 9.033);
-                    setComment27Visible(!comment27visible);
+                   // setComment27Visible(!comment27visible);
                   }}
                 >
                   소형
@@ -1899,7 +1926,8 @@ const toggleHiddenText4 = () => {
                 </CommentButton>
               </p>
             </Story>
-            {comment27visible && <Comment>{comment27}</Comment>}
+            {/* {comment27visible && <Comment>{comment27}</Comment>} */}
+            <Comment>{comment27}</Comment>
           </Column>
           <Column>
             <Story ref={addToRefs}>
@@ -1915,7 +1943,7 @@ const toggleHiddenText4 = () => {
                 <Name className="main-name"
                   onClick={() => {
                     f(window.innerWidth * 9.355);
-                    setComment28Visible(!comment28visible);
+                  //  setComment28Visible(!comment28visible);
                   }}
                 >
                   민기
@@ -1931,7 +1959,8 @@ const toggleHiddenText4 = () => {
                 </CommentButton>
               </p>
             </Story>
-            {comment28visible && <Comment>{comment28}</Comment>}
+            {/* {comment28visible && <Comment>{comment28}</Comment>} */}
+            <Comment>{comment28}</Comment>
           </Column>
           <Column>
             <Story ref={addToRefs}>
@@ -1947,7 +1976,7 @@ const toggleHiddenText4 = () => {
                 <Name className="main-name"
                   onClick={() => {
                     f(window.innerWidth * 9.677);
-                    setComment29Visible(!comment29visible);
+                   // setComment29Visible(!comment29visible);
                   }}
                 >
                   태훈
@@ -1963,7 +1992,8 @@ const toggleHiddenText4 = () => {
                 </CommentButton>
               </p>
             </Story>
-            {comment29visible && <Comment>{comment29}</Comment>}
+            {/* {comment29visible && <Comment>{comment29}</Comment>} */}
+            <Comment>{comment29}</Comment>
           </Column>
           <Column>
             <Story ref={addToRefs}>
@@ -1979,7 +2009,7 @@ const toggleHiddenText4 = () => {
                 <Name className="main-name"
                   onClick={() => {
                     f(window.innerWidth * 9.999);
-                    setComment30Visible(!comment30visible);
+                   // setComment30Visible(!comment30visible);
                   }}
                 >민지
                 </Name>
@@ -1994,7 +2024,8 @@ const toggleHiddenText4 = () => {
                 </CommentButton>
               </p>
             </Story>
-            {comment30visible && <Comment>{comment30}</Comment>}
+            {/* {comment30visible && <Comment>{comment30}</Comment>} */}
+            <Comment>{comment30}</Comment>
           </Column>
         </Box>
         <Generation>19대</Generation>
@@ -2109,6 +2140,11 @@ const NavigationBarItem = styled.div`
   display: flex;
   font-size: 2.5rem;
   width: 14.5vw;
+
+  &:hover {
+    text-decoration: underline dotted 4px;
+    text-underline-offset: 12px;
+  }
 `;
 interface NavigationBarProps {
   f: (positionX: number) => void;
