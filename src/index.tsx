@@ -670,7 +670,7 @@ const StoryBox = ({ f }: StoryBoxProps) => {
                 와 결혼한다. 배우자인 선씨는 신묘년 2월 15일에 태어났으며,
                 아버지의 성함은 선영식이다. 형석은 1959년 5월 4일에 생을
                 마감하고, 가장등 가족묘지에 잠들어있다. 선씨는 1958년 12월 20일에 생을 마감하고, 우동간 합봉유비에 잠들어있다.{" "}
-                <CommentButton
+                <CommentButton className="animated-text"
                   onClick={() => {
                     setCommentTo("형석");
                     setInputPhase(true);
@@ -723,7 +723,7 @@ const StoryBox = ({ f }: StoryBoxProps) => {
                 와 결혼한다. 배우자인 임씨는 1912년 8월 31일에 태어났으며,
                 아버지의 성함은 임흥재이다. 락성은 1990년 7월 27일에 생을
                 마감하고, 가장등 가족묘지에 잠들어있다.{" "}
-                <CommentButton
+                <CommentButton className="animated-text"
                   onClick={() => {
                     setCommentTo("락성");
                     setInputPhase(true);
@@ -764,7 +764,7 @@ const StoryBox = ({ f }: StoryBoxProps) => {
                   탑동
                 </a>
                 에 잠들어있다.{" "}
-                <CommentButton
+                <CommentButton className="animated-text"
                   onClick={() => {
                     setCommentTo("락민");
                     setInputPhase(true);
@@ -805,7 +805,7 @@ const StoryBox = ({ f }: StoryBoxProps) => {
                   탑동
                 </a>
                 에 잠들어있다.{" "}
-                <CommentButton
+                <CommentButton className="animated-text"
                   onClick={() => {
                     setCommentTo("락현");
                     setInputPhase(true);
@@ -844,7 +844,7 @@ const StoryBox = ({ f }: StoryBoxProps) => {
                 </a>{" "}
                 옥순과 결혼한다. 배우자인 옥순은 1945년 4월 20일에 태어났으며,
                 아버지의 성함은 김종석이다.{" "}
-                <CommentButton
+                <CommentButton className="animated-text"
                   onClick={() => {
                     setCommentTo("두석");
                     setInputPhase(true);
@@ -877,7 +877,7 @@ const StoryBox = ({ f }: StoryBoxProps) => {
                   이천 서씨
                 </a>{" "}
                 경자와 결혼한다. 배우자인 경자는 1946년 11월 26일에 태어났다.{" "}
-                <CommentButton
+                <CommentButton className="animated-text"
                   onClick={() => {
                     setCommentTo("두락");
                     setInputPhase(true);
@@ -935,7 +935,7 @@ const StoryBox = ({ f }: StoryBoxProps) => {
                 >
                   순천간호전문대학
                 </a>을 졸업했다.{" "}
-                <CommentButton
+                <CommentButton className="animated-text"
                   onClick={() => {
                     setCommentTo("두현");
                     setInputPhase(true);
@@ -969,7 +969,7 @@ const StoryBox = ({ f }: StoryBoxProps) => {
                   밀양 박씨
                 </a>{" "}
                 숙자와 결혼한다. 배우자인 숙자는 1957년 12월 17일에 태어났다.{" "}
-                <CommentButton
+                <CommentButton className="animated-text"
                   onClick={() => {
                     setCommentTo("두경");
                     setInputPhase(true);
@@ -1018,7 +1018,7 @@ const StoryBox = ({ f }: StoryBoxProps) => {
                   전주 이씨
                 </a>{" "}
                 황국과 결혼해, 아들 광민을 낳는다.{" "}
-                <CommentButton
+                <CommentButton className="animated-text"
                   onClick={() => {
                     setCommentTo("락성과 임씨의 딸");
                     setInputPhase(true);
@@ -1060,7 +1060,7 @@ const StoryBox = ({ f }: StoryBoxProps) => {
                   탑동
                 </a>
                 에 잠들어있다.{" "}
-                <CommentButton
+                <CommentButton className="animated-text"
                   onClick={() => {
                     setCommentTo("경민");
                     setInputPhase(true);
@@ -1111,7 +1111,7 @@ const StoryBox = ({ f }: StoryBoxProps) => {
                   광산 김씨
                 </a>{" "}
                 안석과 결혼해, 첫째 아들 중혁과 둘째 아들 중식을 낳는다.{" "}
-                <CommentButton
+                <CommentButton className="animated-text"
                   onClick={() => {
                     setCommentTo("락민과 안영의 두 딸");
                     setInputPhase(true);
@@ -1168,7 +1168,7 @@ const StoryBox = ({ f }: StoryBoxProps) => {
                   인동 장씨
                 </a>{" "}
                 덕형과 결혼한다.{" "}
-                <CommentButton
+                <CommentButton className="animated-text"
                   onClick={() => {
                     setCommentTo("락현과 배씨의 두 딸");
                     setInputPhase(true);
@@ -1209,7 +1209,7 @@ const StoryBox = ({ f }: StoryBoxProps) => {
                 >
                   {hiddenText1}
                 </span>{" "}
-                <CommentButton
+                <CommentButton className="animated-text"
                   onClick={() => {
                     setCommentTo("수미");
                     setInputPhase(true);
@@ -1250,7 +1250,7 @@ const StoryBox = ({ f }: StoryBoxProps) => {
                   전주 이씨
                 </a>{" "}
                 재희와 결혼한다. 배우자인 재희는 1973년 5월 18일에 태어났다.{" "}
-                <CommentButton
+                <CommentButton className="animated-text"
                   onClick={() => {
                     setCommentTo("현우");
                     setInputPhase(true);
@@ -1284,7 +1284,7 @@ const StoryBox = ({ f }: StoryBoxProps) => {
                 >
                   {hiddenText3}
                 </span>{" "}
-                <CommentButton
+                <CommentButton className="animated-text"
                   onClick={() => {
                     setCommentTo("현정");
                     setInputPhase(true);
@@ -1316,7 +1316,7 @@ const StoryBox = ({ f }: StoryBoxProps) => {
                   수현
                 </Name>
                 이 1976년 8월 14일에 태어난다. 상명대학교를 졸업했다.{" "}
-                <CommentButton
+                <CommentButton className="animated-text"
                   onClick={() => {
                     setCommentTo("수현");
                     setInputPhase(true);
@@ -1342,7 +1342,7 @@ const StoryBox = ({ f }: StoryBoxProps) => {
                   준필
                 </Name>
                 이 1986년 6월 26일에 태어난다. 연세대학교 방송학과를 졸업했다.{" "}
-                <CommentButton
+                <CommentButton className="animated-text"
                   onClick={() => {
                     setCommentTo("준필");
                     setInputPhase(true);
@@ -1388,7 +1388,7 @@ const StoryBox = ({ f }: StoryBoxProps) => {
                   봉화 금씨
                 </a> 영은과 결혼한다. 배우자인 영은은
                 1968년 3월 20일에 태어났으며, 아버지의 성함은 문식이다.{" "}
-                <CommentButton
+                <CommentButton className="animated-text"
                   onClick={() => {
                     setCommentTo("재성");
                     setInputPhase(true);
@@ -1430,7 +1430,7 @@ const StoryBox = ({ f }: StoryBoxProps) => {
                 주영과 결혼한다. 주영은 1975년 6월 2일에 태어났다. 배우자인
                 주영의 아버지의 성함은 무천이다. 주영은 이화여자대학교 영문과를
                 졸업했다.{" "}
-                <CommentButton
+                <CommentButton className="animated-text"
                   onClick={() => {
                     setCommentTo("호준");
                     setInputPhase(true);
@@ -1472,7 +1472,7 @@ const StoryBox = ({ f }: StoryBoxProps) => {
                 >
                   동서울대학교
                 </span> 전자학과를 졸업했다.{" "}
-                <CommentButton
+                <CommentButton className="animated-text"
                   onClick={() => {
                     setCommentTo("정은");
                     setInputPhase(true);
@@ -1498,7 +1498,7 @@ const StoryBox = ({ f }: StoryBoxProps) => {
                   현수
                 </Name>
                 가 1980년 11월 7일에 태어난다.{" "}
-                <CommentButton
+                <CommentButton className="animated-text"
                   onClick={() => {
                     setCommentTo("현수");
                     setInputPhase(true);
@@ -1531,7 +1531,7 @@ const StoryBox = ({ f }: StoryBoxProps) => {
                 </Name>
                 이 1973년 12월 25일에 태어난다. 은정은 윤씨 창수와 결혼해, 아들
                 치환을 낳는다.{" "}
-                <CommentButton
+                <CommentButton className="animated-text"
                   onClick={() => {
                     setCommentTo("은정");
                     setInputPhase(true);
@@ -1563,7 +1563,7 @@ const StoryBox = ({ f }: StoryBoxProps) => {
                   재현
                 </Name>
                 이 1975년 5월 5일에 태어난다.{" "}
-                <CommentButton
+                <CommentButton className="animated-text"
                   onClick={() => {
                     setCommentTo("재현");
                     setInputPhase(true);
@@ -1595,7 +1595,7 @@ const StoryBox = ({ f }: StoryBoxProps) => {
                   성혁
                 </Name>
                 이 1977년 5월 28일에 태어난다.{" "}
-                <CommentButton
+                <CommentButton className="animated-text"
                   onClick={() => {
                     setCommentTo("성혁");
                     setInputPhase(true);
@@ -1627,7 +1627,7 @@ const StoryBox = ({ f }: StoryBoxProps) => {
                   동민
                 </Name>
                 이 1979년 8월 9일에 태어난다.{" "}
-                <CommentButton
+                <CommentButton className="animated-text"
                   onClick={() => {
                     setCommentTo("동민");
                     setInputPhase(true);
@@ -1675,7 +1675,7 @@ const StoryBox = ({ f }: StoryBoxProps) => {
                   2001년 9월 3일에 태어난다.
                 </span>
 {" "}
-                <CommentButton
+                <CommentButton className="animated-text"
                   onClick={() => {
                     setCommentTo("선형");
                     setInputPhase(true);
@@ -1708,7 +1708,7 @@ const StoryBox = ({ f }: StoryBoxProps) => {
                   소형
                 </Name>
                 이 2003년 10월 24일에 태어난다.{" "}
-                <CommentButton
+                <CommentButton className="animated-text"
                   onClick={() => {
                     setCommentTo("소형");
                     setInputPhase(true);
@@ -1740,7 +1740,7 @@ const StoryBox = ({ f }: StoryBoxProps) => {
                   민기
                 </Name>
                 가 2016년 4월 16일에 태어난다.{" "}
-                <CommentButton
+                <CommentButton className="animated-text"
                   onClick={() => {
                     setCommentTo("민기");
                     setInputPhase(true);
@@ -1772,7 +1772,7 @@ const StoryBox = ({ f }: StoryBoxProps) => {
                   태훈
                 </Name>
                 이 2007년 11월 26일에 태어난다.{" "}
-                <CommentButton
+                <CommentButton className="animated-text"
                   onClick={() => {
                     setCommentTo("태훈");
                     setInputPhase(true);
@@ -1803,7 +1803,7 @@ const StoryBox = ({ f }: StoryBoxProps) => {
                 >민지
                 </Name>
                 가 2009년 11월 12일에 태어난다.{" "}
-                <CommentButton
+                <CommentButton className="animated-text"
                   onClick={() => {
                     setCommentTo("민지");
                     setInputPhase(true);
