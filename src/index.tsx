@@ -224,9 +224,19 @@ const CommentButton = styled.span`
   cursor: pointer;
 `;
 
+
+interface CommentProps {
+  rotation: number; // 회전 각도
+}
+
+// 랜덤 회전각도를 생성하는 함수
+const getRandomRotation = () => {
+  return Math.floor(Math.random() * (10 - (-10) + 1)) + (-10);
+};
+
 // 댓글 글씨색 바꾸기
 
-const Comment = styled.div`
+const Comment = styled.div<CommentProps>`
   display: flex;
   width: 30.6vw;
   position: absolute;
@@ -241,8 +251,12 @@ const Comment = styled.div`
   font-family: 'DAEAM_LEE_TAE_JOON', serif;
   font-size: 2.5vh;
   line-height: 1.7;
-  color: #646464;
+  color: #484848;
+
+  transform: rotateZ(${props => props.rotation}deg);
+
 `;
+
 
 interface StoryBoxProps {
   f: (positionX: number) => void;
@@ -303,6 +317,16 @@ useEffect(() => {
     window.removeEventListener('mousemove', handleMouseMove);
   };
 }, []);
+
+
+// 댓글들에 대한 회전값을 저장할 상태
+const [commentsRotation, setCommentsRotation] = useState<number[]>([]);
+
+// 컴포넌트가 마운트될 때 한 번만 댓글들의 회전값을 설정
+useEffect(() => {
+  const rotations = new Array(30).fill(null).map(getRandomRotation);
+  setCommentsRotation(rotations);
+}, []); // 의존성 배열을 빈 배열로 설정하여 마운트 시에만 실행
 
 
   const [inputphase, setInputPhase] = useState<boolean>(false);
@@ -862,7 +886,7 @@ const toggleHiddenText4 = () => {
               </p>
             </Story>
             {/* {comment1visible && <Comment>{comment1}</Comment>} */}
-            <Comment>{comment1}</Comment>
+            <Comment rotation={commentsRotation[0]}>{comment1}</Comment>
             {reference1 != 0 && getReference(reference1)}
             {showImage && activeText === '고종' && (
   <img
@@ -917,7 +941,7 @@ const toggleHiddenText4 = () => {
               </p>
             </Story>
             {/* {comment2visible && <Comment>{comment2}</Comment>} */}
-            <Comment>{comment2}</Comment>
+            <Comment rotation={commentsRotation[1]}>{comment2}</Comment>
             {showImage && activeText === '장흥 임씨' && (
   <img
     src={currentImage.src}
@@ -975,7 +999,7 @@ const toggleHiddenText4 = () => {
               </p>
             </Story>
             {/* {comment3visible && <Comment>{comment3}</Comment>} */}
-            <Comment>{comment3}</Comment>
+            <Comment rotation={commentsRotation[2]}>{comment3}</Comment>
           </Column>
           <Column>
             <Story ref={addToRefs}>
@@ -1017,7 +1041,7 @@ const toggleHiddenText4 = () => {
               </p>
             </Story>
             {/* {comment4visible && <Comment>{comment4}</Comment>} */}
-            <Comment>{comment4}</Comment>
+            <Comment rotation={commentsRotation[3]}>{comment4}</Comment>
           </Column>
         </Box>
         <Generation>16대</Generation>
@@ -1057,7 +1081,7 @@ const toggleHiddenText4 = () => {
               </p>
             </Story>
             {/* {comment5visible && <Comment>{comment5}</Comment>} */}
-            <Comment>{comment5}</Comment>
+            <Comment rotation={commentsRotation[4]}>{comment5}</Comment>
           </Column>
           <Column>
             <Story ref={addToRefs}>
@@ -1091,7 +1115,7 @@ const toggleHiddenText4 = () => {
               </p>
             </Story>
             {/* {comment6visible && <Comment>{comment6}</Comment>} */}
-            <Comment>{comment6}</Comment>
+            <Comment rotation={commentsRotation[5]}>{comment6}</Comment>
           </Column>
           <Column>
             <Story ref={addToRefs}>
@@ -1150,7 +1174,7 @@ const toggleHiddenText4 = () => {
               </p>
             </Story>
             {/* {comment7visible && <Comment>{comment7}</Comment>} */}
-            <Comment>{comment7}</Comment>
+            <Comment rotation={commentsRotation[6]}>{comment7}</Comment>
             {reference7 != 0 && getReference(reference7)}
           </Column>
           <Column>
@@ -1185,7 +1209,7 @@ const toggleHiddenText4 = () => {
               </p>
             </Story>
             {/* {comment8visible && <Comment>{comment8}</Comment>} */}
-            <Comment>{comment8}</Comment>
+            <Comment rotation={commentsRotation[7]}>{comment8}</Comment>
           </Column>
           <Column>
             <Story ref={addToRefs}>
@@ -1235,7 +1259,7 @@ const toggleHiddenText4 = () => {
               </p>
             </Story>
             {/* {comment9visible && <Comment>{comment9}</Comment>} */}
-            <Comment>{comment9}</Comment>
+            <Comment rotation={commentsRotation[8]}>{comment9}</Comment>
             {reference9 != 0 && getReference(reference9)}
           </Column>
           <Column>
@@ -1278,7 +1302,7 @@ const toggleHiddenText4 = () => {
               </p>
             </Story>
             {/* {comment10visible && <Comment>{comment10}</Comment>} */}
-            <Comment>{comment10}</Comment>
+            <Comment rotation={commentsRotation[9]}>{comment10}</Comment>
           </Column>
           <Column>
             <Story ref={addToRefs}>
@@ -1330,7 +1354,7 @@ const toggleHiddenText4 = () => {
               </p>
             </Story>
             {/* {comment11visible && <Comment>{comment11}</Comment>} */}
-            <Comment>{comment11}</Comment>
+            <Comment rotation={commentsRotation[10]}>{comment11}</Comment>
             {reference11 != 0 && getReference(reference11)}
           </Column>
           <Column>
@@ -1388,7 +1412,7 @@ const toggleHiddenText4 = () => {
               </p>
             </Story>
             {/* {comment12visible && <Comment>{comment12}</Comment>} */}
-            <Comment>{comment12}</Comment>
+            <Comment rotation={commentsRotation[11]}>{comment12}</Comment>
             {reference12 != 0 && getReference(reference12)}
           </Column>
         </Box>
@@ -1426,7 +1450,7 @@ const toggleHiddenText4 = () => {
               </p>
             </Story>
             {/* {comment13visible && <Comment>{comment13}</Comment>} */}
-            <Comment>{comment13}</Comment>
+            <Comment rotation={commentsRotation[12]}>{comment13}</Comment>
           </Column>
           <Column>
             <Story ref={addToRefs}>
@@ -1464,7 +1488,7 @@ const toggleHiddenText4 = () => {
               </p>
             </Story>
             {/* {comment14visible && <Comment>{comment14}</Comment>} */}
-            <Comment>{comment14}</Comment>
+            <Comment rotation={commentsRotation[13]}>{comment14}</Comment>
           </Column>
           <Column>
             <Story ref={addToRefs}>
@@ -1495,7 +1519,7 @@ const toggleHiddenText4 = () => {
               </p>
             </Story>
             {/* {comment15visible && <Comment>{comment15}</Comment>} */}
-            <Comment>{comment15}</Comment>
+            <Comment rotation={commentsRotation[14]}>{comment15}</Comment>
           </Column>
           <Column>
             <Story ref={addToRefs}>
@@ -1528,7 +1552,7 @@ const toggleHiddenText4 = () => {
               </p>
             </Story>
             {/* {comment16visible && <Comment>{comment16}</Comment>} */}
-            <Comment>{comment16}</Comment>
+            <Comment rotation={commentsRotation[15]}>{comment16}</Comment>
           </Column>
           <Column>
             <Story ref={addToRefs}>
@@ -1555,7 +1579,7 @@ const toggleHiddenText4 = () => {
               </p>
             </Story>
             {/* {comment17visible && <Comment>{comment17}</Comment>} */}
-            <Comment>{comment17}</Comment>
+            <Comment rotation={commentsRotation[16]}>{comment17}</Comment>
           </Column>
           <Column>
             <Story ref={addToRefs}>
@@ -1598,7 +1622,7 @@ const toggleHiddenText4 = () => {
               </p>
             </Story>
             {/* {comment18visible && <Comment>{comment18}</Comment>} */}
-            <Comment>{comment18}</Comment>
+            <Comment rotation={commentsRotation[17]}>{comment18}</Comment>
           </Column>
           <Column>
             <Story ref={addToRefs}>
@@ -1641,7 +1665,7 @@ const toggleHiddenText4 = () => {
               </p>
             </Story>
             {/* {comment19visible && <Comment>{comment19}</Comment>} */}
-            <Comment>{comment19}</Comment>
+            <Comment rotation={commentsRotation[18]}>{comment19}</Comment>
           </Column>
           <Column>
             <Story ref={addToRefs}>
@@ -1684,7 +1708,7 @@ const toggleHiddenText4 = () => {
               </p>
             </Story>
             {/* {comment20visible && <Comment>{comment20}</Comment>} */}
-            <Comment>{comment20}</Comment>
+            <Comment rotation={commentsRotation[19]}>{comment20}</Comment>
             {reference20 != 0 && getReference(reference20)}
           </Column>
           <Column>
@@ -1711,7 +1735,7 @@ const toggleHiddenText4 = () => {
               </p>
             </Story>
             {/* {comment21visible && <Comment>{comment21}</Comment>} */}
-            <Comment>{comment21}</Comment>
+            <Comment rotation={commentsRotation[20]}>{comment21}</Comment>
           </Column>
           <Column>
             <Story ref={addToRefs}>
@@ -1745,7 +1769,7 @@ const toggleHiddenText4 = () => {
               </p>
             </Story>
             {/* {comment22visible && <Comment>{comment22}</Comment>} */}
-            <Comment>{comment22}</Comment>
+            <Comment rotation={commentsRotation[21]}>{comment22}</Comment>
           </Column>
           <Column>
             <Story ref={addToRefs}>
@@ -1778,7 +1802,7 @@ const toggleHiddenText4 = () => {
               </p>
             </Story>
             {/* {comment23visible && <Comment>{comment23}</Comment>} */}
-            <Comment>{comment23}</Comment>
+            <Comment rotation={commentsRotation[22]}>{comment23}</Comment>
           </Column>
           <Column>
             <Story ref={addToRefs}>
@@ -1811,7 +1835,7 @@ const toggleHiddenText4 = () => {
               </p>
             </Story>
             {/* {comment24visible && <Comment>{comment24}</Comment>} */}
-            <Comment>{comment24}</Comment>
+            <Comment rotation={commentsRotation[23]}>{comment24}</Comment>
           </Column>
           <Column>
             <Story ref={addToRefs}>
@@ -1844,7 +1868,7 @@ const toggleHiddenText4 = () => {
               </p>
             </Story>
             {/* {comment25visible && <Comment>{comment25}</Comment>} */}
-            <Comment>{comment25}</Comment>
+            <Comment rotation={commentsRotation[24]}>{comment25}</Comment>
           </Column>
         </Box>
         <Generation>18대</Generation>
@@ -1893,7 +1917,7 @@ const toggleHiddenText4 = () => {
               </p>
             </Story>
             {/* {comment26visible && <Comment>{comment26}</Comment>} */}
-            <Comment>{comment26}</Comment>
+            <Comment rotation={commentsRotation[25]}>{comment26}</Comment>
             {reference26 != 0 && getReference(reference26)}
           </Column>
           <Column>
@@ -1927,7 +1951,7 @@ const toggleHiddenText4 = () => {
               </p>
             </Story>
             {/* {comment27visible && <Comment>{comment27}</Comment>} */}
-            <Comment>{comment27}</Comment>
+            <Comment rotation={commentsRotation[26]}>{comment27}</Comment>
           </Column>
           <Column>
             <Story ref={addToRefs}>
@@ -1960,7 +1984,7 @@ const toggleHiddenText4 = () => {
               </p>
             </Story>
             {/* {comment28visible && <Comment>{comment28}</Comment>} */}
-            <Comment>{comment28}</Comment>
+            <Comment rotation={commentsRotation[27]}>{comment28}</Comment>
           </Column>
           <Column>
             <Story ref={addToRefs}>
@@ -1993,7 +2017,7 @@ const toggleHiddenText4 = () => {
               </p>
             </Story>
             {/* {comment29visible && <Comment>{comment29}</Comment>} */}
-            <Comment>{comment29}</Comment>
+            <Comment rotation={commentsRotation[28]}>{comment29}</Comment>
           </Column>
           <Column>
             <Story ref={addToRefs}>
@@ -2025,7 +2049,7 @@ const toggleHiddenText4 = () => {
               </p>
             </Story>
             {/* {comment30visible && <Comment>{comment30}</Comment>} */}
-            <Comment>{comment30}</Comment>
+            <Comment rotation={commentsRotation[29]}>{comment30}</Comment>
           </Column>
         </Box>
         <Generation>19대</Generation>
