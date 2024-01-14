@@ -90,13 +90,13 @@ const CommentBox = ({
   setInputPhase,
 }: CommentBoxProps) => {
   const [content, setContent] = useState<string>(
-    "이곳에 전하고 싶은 이야기를 작성해주세요. 인물의 이름을 클릭하면 기록된 이야기를 볼 수 있어요."
+    "이곳에 전하고 싶은 이야기를 작성해주세요."
   );
   const [errormessage, setErrorMessage] = useState<string>("");
 
   const SendComment = () => {
     if (
-      content === "이곳에 전하고 싶은 이야기를 작성해주세요. 인물의 이름을 클릭하면 기록된 이야기를 볼 수 있어요." ||
+      content === "이곳에 전하고 싶은 이야기를 작성해주세요." ||
       content === ""
     ) {
       setErrorMessage("이야기를 입력해주세요.");
@@ -122,12 +122,12 @@ const CommentBox = ({
         onChange={(e) => setContent(e.target.value)}
         onFocus={() => {
           setErrorMessage("");
-          if (content === "이곳에 전하고 싶은 이야기를 작성해주세요. 인물의 이름을 클릭하면 기록된 이야기를 볼 수 있어요.") {
+          if (content === "이곳에 전하고 싶은 이야기를 작성해주세요.") {
             setContent("");
           }
         }}
         style={{
-          color: content === "이곳에 전하고 싶은 이야기를 작성해주세요. 인물의 이름을 클릭하면 기록된 이야기를 볼 수 있어요." || content === "" ? '#53592D' : '#C9DA5D'
+          color: content === "이곳에 전하고 싶은 이야기를 작성해주세요." || content === "" ? '#53592D' : '#C9DA5D'
         }}
       ></CommentContent>
       <CommentSend>
@@ -232,6 +232,7 @@ const Comment = styled.div`
   position: absolute;
   top: 350px;
   margin-left: 16.1vw;
+  overflow-wrap: break-word;
   word-wrap: break-word;
   white-space: pre-wrap;
   z-index: 0;
