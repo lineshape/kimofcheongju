@@ -2180,7 +2180,7 @@ const NavigationBar = ({ f }: NavigationBarProps) => {
     <NavigationBarRoot>
         {/* 로컬 스토리지 초기화하고싶을때 onClick 함수 내부에 localStorage.clear(); 추가 */}
       <NavigationBarItem>
-        <div onClick={() => {f(0);}} style={{ cursor: "pointer", fontFamily: isHovered ? 'ChosunKm' : 'GapyeongHanseokbong-Bold', }}
+        <div onClick={() => {f(0); localStorage.clear();}} style={{ cursor: "pointer", fontFamily: isHovered ? 'ChosunKm' : 'GapyeongHanseokbong-Bold', }}
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
         >
