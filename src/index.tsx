@@ -179,7 +179,7 @@ const StoryStyled = styled.div`
   white-space: pre-wrap;
   position: relative;
   z-index: 2;
-  margin-top: 13vh;
+  margin-top: 12vh;
   width: 30.6vw;
   height: 200px;
   font-size: 2.5vh;
@@ -240,7 +240,7 @@ const Comment = styled.div<CommentProps>`
   display: flex;
   width: 30.6vw;
   position: absolute;
-  top: 350px;
+  top: 30vh;
   margin-left: 16.1vw;
   overflow-wrap: break-word;
   word-wrap: break-word;
