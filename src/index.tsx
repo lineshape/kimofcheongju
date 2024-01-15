@@ -159,7 +159,7 @@ const GenRoot = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  margin-bottom: 51px;
+  margin-bottom: 48px;
 `;
 
 const Box = styled.div`
@@ -179,7 +179,7 @@ const StoryStyled = styled.div`
   white-space: pre-wrap;
   position: relative;
   z-index: 2;
-  margin-top: 176px;
+  margin-top: 13vh;
   width: 30.6vw;
   height: 200px;
   font-size: 2.5vh;
@@ -212,7 +212,7 @@ const Story = forwardRef<HTMLParagraphElement, StoryProps>(({ children }, ref) =
 
 const Generation = styled.div`
   display: flex;
-  font-size: 2.5rem;
+  font-size: 3.26vh;
 `;
 
 const Name = styled.span`
@@ -2069,7 +2069,7 @@ const Reference = styled.div`
   bottom: 100px;
   z-index: 1;
   bottom: 0px;
-  gap: 20px;
+  gap: 1.63vh;
 
   font-size: 2.5vh;
 
@@ -2157,12 +2157,13 @@ const NavigationBarRoot = styled.div`
   // margin: 48px;
   padding-left: 48px;
   padding-top: 40px;
+  padding-bottom: 4.89vh;
   gap: 1.6vw;
 `;
 
 const NavigationBarItem = styled.div`
   display: flex;
-  font-size: 2.5rem;
+  font-size: 3.26vh;
   width: 14.5vw;
 
   &:hover {
@@ -2231,19 +2232,12 @@ const ShowHelpRoot = styled.div`
   flex-direction: column;
   align-items: flex-end;
   position: fixed;
-  bottom: 51px;
+  bottom: 48px;
   right: 48px;
   z-index: 100;
-  font-size: 2.5rem;
+  font-size: 3.26vh;
   white-space: normal;
   line-height: 0.8;
-
-  height: 40px; // 기본 높이와 넓이
-
-  &:hover {
-    height: 128px; // 호버 시 높이
-    transform: translateY(-88px);
-  }
 `;
 
 
