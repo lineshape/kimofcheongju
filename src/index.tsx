@@ -2104,7 +2104,7 @@ const getReference = (refnum: number) => {
     case 3:
       return (
         <Reference>
-          <img src={"public/image3.webp"} alt="image3"  />
+          <img src={"/표창장.jpg"} alt="image3"  />
           <div>{"이렇게 생겼다고 한다."}</div>
         </Reference>
       );
