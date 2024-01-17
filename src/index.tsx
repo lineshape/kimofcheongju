@@ -2111,28 +2111,28 @@ const getReference = (refnum: number) => {
       case 4:
       return (
         <Reference>
-          <img src={"/족보여자.png"} alt="image4"  />
+          <img src={"/women.png"} alt="image4"  />
           <div>{"당시에는 딸의 이름 대신 딸의 배우자 이름이 기록되곤 했다."}</div>
         </Reference>
       );
       case 5:
       return (
         <Reference>
-          <img src={"/족보여자.png"} alt="image5" />
+          <img src={"/women.png"} alt="image5" />
           <div>{"당시에는 딸의 이름 대신 딸의 배우자 이름이 기록되곤 했다."}</div>
         </Reference>
       );
       case 6:
       return (
         <Reference>
-          <img src={"/족보여자.png"} alt="image6"  />
+          <img src={"/women.png"} alt="image6"  />
           <div>{"당시에는 딸의 이름 대신 딸의 배우자 이름이 기록되곤 했다."}</div>
         </Reference>
       );
       case 7:
       return (
         <Reference>
-          <img src={"/동서울.png"} alt="image7"  />
+          <img src={"/eastseoul.png"} alt="image7"  />
           <div>{"‘서울’만 매우 크게 쓰여있어 헷갈릴 뻔했다."}</div>
         </Reference>
       );
